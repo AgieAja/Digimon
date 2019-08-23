@@ -260,14 +260,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `name`, `address`, `email`, `phone_number`, `access_level`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(1, 'nurahman_1', '1234', 'Nurahman', 'Palembang', 'ngasiman21@gmail.com', '123456', 1, '2019-08-02 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(2, 'lavinia_J', '1234', 'Lavinia Jovita Samiana', 'Jakarta Selatan', 'lavina@gmail.com', '123456', 2, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(3, 'winanto_h', '1234', 'Winanto Heryan', 'Jakarta Barat', 'winanto@gmail.com', '123444', 3, '2019-08-04 00:00:00', '2019-08-04 00:00:00', NULL, 8, 8, NULL),
-(4, 'ade_nurmansyah', '1234', 'Ade Nurmansyah', 'Tigaraksa', 'ade@gmail.com', '123456', 4, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(5, 'jijih_s', '1234', 'Jijih Saptujih', 'Curug', 'jijih@gmail.com', '123456', 5, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(6, 'didik_a', '1234', 'Didik Ardianto', 'Kadu Jaya', 'didik@gmail.com', '123456', 6, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(7, 'manto_1', '1234', 'Manto', 'Cikupa Jaya', 'manto@gmail.com', '123456', 7, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
-(14, 'vonny_k', '1234', 'Vonny Kusrini', 'Jakarta Barat', 'vonny@gmail.com', '1234', 8, '2019-08-14 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL);
+(1, 'nurahman_1', MD5('12345'), 'Nurahman', 'Palembang', 'ngasiman21@gmail.com', '123456', 1, '2019-08-02 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(2, 'lavinia_J', MD5('12345'), 'Lavinia Jovita Samiana', 'Jakarta Selatan', 'lavina@gmail.com', '123456', 2, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(3, 'winanto_h', MD5('12345'), 'Winanto Heryan', 'Jakarta Barat', 'winanto@gmail.com', '123444', 3, '2019-08-04 00:00:00', '2019-08-04 00:00:00', NULL, 8, 8, NULL),
+(4, 'ade_nurmansyah', MD5('12345'), 'Ade Nurmansyah', 'Tigaraksa', 'ade@gmail.com', '123456', 4, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(5, 'jijih_s', MD5('12345'), 'Jijih Saptujih', 'Curug', 'jijih@gmail.com', '123456', 5, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(6, 'didik_a', MD5('12345'), 'Didik Ardianto', 'Kadu Jaya', 'didik@gmail.com', '123456', 6, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(7, 'manto_1', MD5('12345'), 'Manto', 'Cikupa Jaya', 'manto@gmail.com', '123456', 7, '2019-08-04 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL),
+(14, 'vonny_k', MD5('12345'), 'Vonny Kusrini', 'Jakarta Barat', 'vonny@gmail.com', '1234', 8, '2019-08-14 00:00:00', '2019-08-14 00:00:00', NULL, 8, 8, NULL);
 
 -- --------------------------------------------------------
 
