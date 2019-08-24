@@ -14,7 +14,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <form action="<?= base_url(); ?>index.php/auth/login" method="post">
+    <form action="<?= base_url(); ?>auth/login" method="post">
     <div class="row">
       <div class="col-lg-4 grid-margin mx-auto">
         <div class="card mx-auto pt-5 my-auto">
