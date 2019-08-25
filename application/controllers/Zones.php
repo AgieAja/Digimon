@@ -18,7 +18,6 @@
             $data['pluginjs'] = "templates/v_pluginjs";
             $data['body'] = "zones/v_list_zone";
 
-            $getData = $this->m_zone->retrieveZone();
             $data['listZone'] =  $getData;
 
             $this->load->view('v_home', $data);
