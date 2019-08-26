@@ -128,7 +128,6 @@ class Request extends CI_Controller
         $id= $this->uri->segment(3);
 
         $header = $this->m_request_header->delete($id);
-        $approves = $this->m_approve->delete($id);
         
         if ($approves){
             $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>

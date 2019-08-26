@@ -98,8 +98,10 @@ class m_request_header extends CI_Model
 
     public function delete($id){
        
+       $data['deleted_at'] = date('Y-m-d');
+       $data['deleted_by'] = $this->session->userdata('id');
        $this->db->where('request_header_id',$id);
-       $this->db->delete('request_headers');
+       $this->db->update('request_headers',$data);
 
     }
 

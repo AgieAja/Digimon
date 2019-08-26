@@ -26,36 +26,38 @@ echo $this->session->flashdata("msg");
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($listRequest as $row) { ?>
-                                <tr>
-                                    <td><?= $row->request_no ?></td>
-                                    <td><?= $row->name ?></td>
-                                    <td><?= $row->po_number_customer ?></td>
-                                    <td><?= $row->user_name ?></td>
-                                    <td><?= date('d F Y',strtotime($row->created_at)) ?></td>
-                                    <td>
-                                    <?php if ($row->approve_status ==0) { 
-                                        echo "Reject";
-                                    }else if($row->approve_status ==1){
-                                        echo "Waiting";
-                                    }else if( $row->approve_status ==2){
-                                        echo "Revision";
-                                    }else if($row->approve_status==3){
-                                        echo "Approve";
-                                    } ?>
-                                    
-                                    </td>
-                                    <td>
-                                    <?php if ($row->approve_status ==1) { ?>
-                                        <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> |
-                                        <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a>
-                                    <?php }elseif($row->approve_status ==2){ ?>
-                                        <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> |
-                                        <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a>
-                                    <?php } ?>   
-                                    </td>
-                                </tr>
-                                <?php } ?>
+                                foreach ($listRequest as $row) { 
+                                    if (empty($row->deleted_by)) { ?>
+                                        
+                                    <tr>
+                                        <td><?= $row->request_no ?></td>
+                                        <td><?= $row->name ?></td>
+                                        <td><?= $row->po_number_customer ?></td>
+                                        <td><?= $row->user_name ?></td>
+                                        <td><?= date('d F Y',strtotime($row->created_at)) ?></td>
+                                        <td>
+                                        <?php if ($row->approve_status ==0) { 
+                                            echo "Reject";
+                                        }else if($row->approve_status ==1){
+                                            echo "Waiting";
+                                        }else if( $row->approve_status ==2){
+                                            echo "Revision";
+                                        }else if($row->approve_status==3){
+                                            echo "Approve";
+                                        } ?>
+                                        
+                                        </td>
+                                        <td>
+                                        <?php if ($row->approve_status ==1) { ?>
+                                            <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> |
+                                            <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a>
+                                        <?php }elseif($row->approve_status ==2){ ?>
+                                            <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> |
+                                            <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a>
+                                        <?php } ?>   
+                                        </td>
+                                    </tr>
+                                <?php } } ?>
                                <!--  <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
