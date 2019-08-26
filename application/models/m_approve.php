@@ -56,4 +56,9 @@ class m_approve extends CI_Model
     	$this->db->where('request_approve_id',$id);
     	$this->db->update('request_approves',$data);
     }
+    public function delete($id){
+
+        $this->db->where('request_header_id',$id);
+        $this->db->delete('request_approves');
+    }
 }

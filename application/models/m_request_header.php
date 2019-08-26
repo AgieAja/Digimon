@@ -96,22 +96,11 @@ class m_request_header extends CI_Model
         $this->db->update("request_headers", $data);
     }
 
-    public function delete(){
-        $post = $this->input->post();
+    public function delete($id){
+       
+       $this->db->where('request_header_id',$id);
+       $this->db->delete('request_headers');
 
-        $customer_code = $post["customer_code"];
-        $data['name'] = $post["name"];
-        $data['address'] = $post["address"];
-        $data['email'] = $post["email"];
-        $data['phone_number'] = $post["phone_number"];
-        $data['zone_code'] = $post["zone_code"];
-        $data['updated_at'] = date('Y-m-d');
-		$data['deleted_at'] = date('Y-m-d');
-		$data['updated_by'] = 1;
-		$data['deleted_by'] = 1;
-        
-        $this->db->where('customer_code', $customer_code);
-        $this->db->update("customers", $data);
     }
 
 }

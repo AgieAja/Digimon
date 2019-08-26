@@ -13,6 +13,8 @@ class Auth extends CI_controller
     }
 
     public function login(){
+
+        echo "string";
         $user = $this->input->post('user_name');
         $pass = $this->input->post('password');
         
@@ -20,9 +22,6 @@ class Auth extends CI_controller
         
         $queryUser = $this->m_auth->userLogin($user, $pass);
         
-        // var_dump($user,$queryUser['name']);
-        // exit();
-
         $data_session = array(
                 'id' => $queryUser['id'],
                 'user_name' => $user,

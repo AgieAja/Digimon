@@ -123,10 +123,48 @@ class Request extends CI_Controller
         }
     }
 
+    public function delete(){
+
+        $id= $this->uri->segment(3);
+
+        $header = $this->m_request_header->delete($id);
+        $approves = $this->m_approve->delete($id);
+        
+        if ($approves){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Warning!</strong> Ups Something wrong.
+            </div>");
+            redirect("request");
+        }else{
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Information!</strong> Data has been delete. 
+            </div>");
+            redirect("request");
+        }
+    }
+
     public function deleterow(){
 
         $deleterow = $this->uri->segment(3);
+
+
         $res = $this->m_request_detail->retrieveDeleteRow($deleterow);
+
+         if ($res){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Warning!</strong> Ups Something wrong.
+            </div>");
+            redirect("request");
+        }else{
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Information!</strong> Data has been delete. 
+            </div>");
+            redirect("request");
+        }
 
 
 

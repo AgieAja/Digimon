@@ -58,7 +58,7 @@
 </head>
 <body class="bg-login">
   <div class="container-fluid">
-    <form action="<?= base_url(); ?>auth/login" method="post">
+    <form action="<?= base_url(); ?>Auth/login" method="post">
     <div class="row">
       <div class="col-lg-4 grid-margin mx-auto">
         <div class="mx-auto pt-2 mt-5 my-auto">

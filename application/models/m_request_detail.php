@@ -88,8 +88,9 @@ class m_request_detail extends CI_Model
     
     public function retrieveDeleteRow($deleterow)
     {
-        return $this->db->get_where($this->_table, ["request_detail_id" => $deleterow])->result;
-    	var_dump($this->input->post('deleterow'));
+
+        $this->db->where('request_detail_id',$deleterow);
+        $this->db->delete('request_details');
 
     }
 }
