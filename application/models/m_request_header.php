@@ -12,8 +12,8 @@ class m_request_header extends CI_Model
     public $created_at;
     public $updated_at;
     public $deleted_at;
-    public $created_by = 2;
-    public $updated_by = 2;
+    public $created_by;
+    public $updated_by; 
     public $deleted_by;
 
 
@@ -62,11 +62,15 @@ class m_request_header extends CI_Model
         $this->po_number_customer = $post["customer_po_no"];
         $this->request_date = date('Y-m-d',strtotime($post['request_date']));
         $this->created_at = date('Y-m-d');
-        $this->updated_at = date('Y-m-d');
-        $this->created_by = 1;
-        $this->updated_by = 1;
+        $this->created_by = $this->session->userdata('id');
+
         $this->db->insert($this->_table, $this);
 
+    }
+
+    public function retrieveRequestId($request_header_id)
+    {
+        return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->row();
     }
 
     public function getRequestHeader($request_no)
@@ -79,20 +83,17 @@ class m_request_header extends CI_Model
 
     }
 
-    public function update(){
-        $post = $this->input->post();
+    public function updateHeader(){
 
-        $customer_code = $post["customer_code"];
-        $data['name'] = $post["customer_name"];
-        $data['address'] = $post["address"];
-        $data['email'] = $post["email"];
-        $data['phone_number'] = $post["phone_number"];
-        $data['zone_code'] = $post["zone_code"];
+        $post = $this->input->post();
+        $request_header_id = $post['request_header_id'];
+        $data['customer_code'] = $post['customer_code'];
+        $data['po_number_customer'] = $post['customer_po_no'];
         $data['updated_at'] = date('Y-m-d');
-        $data['updated_by'] = 1;
-        
-        $this->db->where('customer_code', $customer_code);
-        $this->db->update("customers", $data);
+        $data['updated_by'] = $this->session->userdata('id');
+
+        $this->db->where('request_header_id', $request_header_id);
+        $this->db->update("request_headers", $data);
     }
 
     public function delete(){
