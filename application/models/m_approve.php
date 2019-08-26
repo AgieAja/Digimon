@@ -6,6 +6,7 @@ class m_approve extends CI_Model
     public $request_approve_id;
     public $request_header_id;
     public $approve_date;
+    public $approve_note;
     public $approve_by;
     public $approve_status;
 
@@ -20,6 +21,7 @@ class m_approve extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
+                WHERE approve_status <> 3
             ");
         return  $query->result();
     }
@@ -31,11 +33,27 @@ class m_approve extends CI_Model
         $ress_header_id = $this->db->get('request_headers')->row();
 
     	$this->request_header_id = $ress_header_id->request_header_id;
-    	$this->approve_by = $this->session->userdata('id');
     	$this->approve_status = 1;
 
     	$this->db->insert($this->_table, $this);
 
     }
 
+    public function retrieveCekApprove($request_header_id)
+    {
+    	return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->row();
+
+    }
+    public function cekApprove(){
+
+    	$post = $this->input->post();
+
+    	$id = $post['request_approve_id'];
+    	$data['approve_date'] = date('Y-m-d');
+    	$data['approve_note'] = $post['note'];
+    	$data['approve_status'] = $post['cek'];
+    	
+    	$this->db->where('request_approve_id',$id);
+    	$this->db->update('request_approves',$data);
+    }
 }
