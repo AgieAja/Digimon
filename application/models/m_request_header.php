@@ -28,6 +28,25 @@ class m_request_header extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
+                
+            ");
+        return  $query->result();
+    }
+
+    public function retrieveRequestPackaging(){
+
+        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,s.user_name as sales
+                FROM request_headers as rh
+                LEFT JOIN customers as c
+                ON rh.customer_code = c.customer_code
+                LEFT JOIN users as u
+                ON u.id = rh.created_by
+                LEFT JOIN request_approves as ra
+                ON rh.request_header_id = ra.request_header_id
+                LEFT JOIN users as s
+                ON s.id = ra.approve_by
+                WHERE ra.approve_status = 3
+                
             ");
         return  $query->result();
     }

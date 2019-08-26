@@ -51,6 +51,7 @@ class m_approve extends CI_Model
     	$id = $post['request_approve_id'];
     	$data['approve_date'] = date('Y-m-d');
     	$data['approve_note'] = $post['note'];
+        $data['approve_by'] = $this->session->userdata('id');
     	$data['approve_status'] = $post['cek'];
     	
     	$this->db->where('request_approve_id',$id);
