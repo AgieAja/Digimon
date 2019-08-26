@@ -21,6 +21,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                foreach ($listRequest as $row) {
+                                    # code...
+                                }
+                                ?>
                                 <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
