@@ -132,5 +132,27 @@ class Request extends CI_Controller
 
     }
 
+    public function print(){
+
+        $data['header'] = "templates/v_header";
+        $data['navbar'] = "templates/v_navbar";
+        $data['sidebar'] = "templates/v_sidebar";
+        $data['footer'] = "templates/v_footer";
+        $data['pluginjs'] = "templates/v_pluginjs";
+        $data['body'] = "print/print";
+
+        $request_header_id = $this->uri->segment(3);
+        $request_header = $this->m_request_header;
+        $data['res'] = $request_header->retrieveRequestId($request_header_id);
+        $data['listCustomer']  = $this->m_customer->retrieveCustomerGet();
+        $data['listRequesDetail'] = $this->m_request_detail->retrieveRequestDetailId($request_header_id);
+        $data['listManufacture'] = $this->m_manufacture->retrieveManufactureGet();
+        $data['listWarehouse'] = $this->m_warehouse->retrieveWarehouseGet();
+        $data['listBrand'] = $this->m_brand->retrieveBrand();
+
+        $this->load->view('print/p_request', $data);
+
+    }
+
 
 }

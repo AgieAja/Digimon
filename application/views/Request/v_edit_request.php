@@ -107,9 +107,9 @@
                     <!-- <button type="button" class="btn btn-success" id="tambahdata">Add</button> -->
                     <br>
                     <br>
-                    <a href="<?= base_url(); ?>index.php/request" class="btn btn-danger ml-1" style="float:right;">Cancel</a>
+                    <a href="<?= base_url(); ?>request" class="btn btn-danger ml-1" style="float:right;">Cancel</a>
                     <button type="submit" class="btn btn-info ml-1" style="float:right;" type="submit">Submit</button>
-                    <button class="btn btn-warning" style="float:right;" type="reset">Print</button>
+                    <a href="<?= base_url() ?>request/print/<?= $res->request_header_id  ?>" class="btn btn-warning" style="float:right;" type="reset">Print</a>
                 </div>
             </div>
         </div>
