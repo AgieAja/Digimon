@@ -6,6 +6,7 @@ class Packaging extends CI_Controller
         parent::__construct();
 
         $this->load->model('m_packaging');
+        $this->load->model('m_request_detail');
 
         if($this->session->userdata('status') != 'login'){
                 redirect('auth');
@@ -35,11 +36,13 @@ class Packaging extends CI_Controller
 
         $id = $this->uri->segment(3);
 
-        var_dump($id);
-        exit;
 
         $packaging = $this->m_packaging;
-
+        $req_detail = $this->m_request_detail;
+        $data['res'] = $packaging->retrievePackagingHeader($id);
+        $data['listDetail'] = $req_detail->retrieveRequestDetailId($id);
+        
+        $data['no']=1;
         $this->load->view('v_home', $data);
     }
 }
