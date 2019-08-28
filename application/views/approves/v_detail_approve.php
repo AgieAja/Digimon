@@ -14,7 +14,7 @@
                     </div><br>
                     <div class="row">
                         <div class="col-lg-2"><Label>Customer :</Label></div>
-                        <div class="col-lg-2"><input type="text" readonly class="form-control" value="<?= $ress->name  ?> "></div>
+                        <div class="col-lg-2"><input type="text" readonly class="form-control" value="<?= $ress->customer_code  ?> "></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Po No Customer</label></div>

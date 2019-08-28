@@ -22,7 +22,7 @@ class Bom extends CI_Controller
         $data['footer'] = "templates/v_footer";
         $data['pluginjs'] = "templates/v_pluginjs";
         $data['body'] = "bom/v_list_bom";
-        $data['listRequest'] = $this->m_request_header->retrieveRequestPackaging();
+        // $data['listRequest'] = $this->m_request_header->retrieveRequestPackaging();
 
         $this->load->view('v_home', $data);
     }

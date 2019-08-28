@@ -36,13 +36,12 @@ class Packaging extends CI_Controller
         $data['body'] = "packaging/v_detail_packaging";
 
         $id = $this->uri->segment(3);
-<<<<<<< HEAD
+
         $request_header = $this->m_request_header;
         $data['res'] = $request_header->retrieveRequestHeaderJoin($id);
         $packaging = $this->m_packaging;
         $data['listDetail'] = $packaging->retrievePackagingDetail($id);
         $data['no'] =1;
-=======
 
 
         $packaging = $this->m_packaging;
@@ -51,7 +50,6 @@ class Packaging extends CI_Controller
         $data['listDetail'] = $req_detail->retrieveRequestDetailId($id);
         
         $data['no']=1;
->>>>>>> f790849e208a86381194515792ad20dd16b3ed84
         $this->load->view('v_home', $data);
     }
 }
