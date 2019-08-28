@@ -21,6 +21,7 @@ class m_request_detail extends CI_Model
     {
         return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->result();
 
+        
     }
 
     public function saveDetail(){

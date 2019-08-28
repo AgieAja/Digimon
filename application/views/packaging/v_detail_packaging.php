@@ -10,7 +10,11 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Request Date :</label></div>
+<<<<<<< HEAD
                         <div class="col-lg-2"><input type="text" readonly class="form-control" value="<?= date('d-M-Y',strtotime($res->request_date))  ?>"></div>
+=======
+                        <div class="col-lg-2"><input type="text" readonly class="form-control" value="<?= date('d-M-Y',strtotime($res->request_date));  ?>"></div>
+>>>>>>> f790849e208a86381194515792ad20dd16b3ed84
                     </div><br>
                     <div class="row">
                         <div class="col-lg-2"><Label>Customer :</Label></div>
@@ -18,7 +22,11 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Po No Customer</label></div>
+<<<<<<< HEAD
                         <div class="col-lg-2"><input class="form-control" type="text" name="customer_po_no" readonly value="<?= $res->po_number_customer ?>" ></div>
+=======
+                        <div class="col-lg-2"><input class="form-control" type="text" name="" readonly value="<?= $res->po_number_customer ?>" ></div>
+>>>>>>> f790849e208a86381194515792ad20dd16b3ed84
                     </div>
                 </div>
             </div>
@@ -50,12 +58,23 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $row->customer_info_no ?></td>
+<<<<<<< HEAD
                                 <td><?= $row->sakura_version_no ?></td>
                                 <td><?= $row->brand_code ?></td>
                                 <td><?= $row->order_qty ?></td>
                                 <td>Img</td>
                                 <td><?= date('d-M-Y',strtotime($row->ds_create)) ?></td>
 
+=======
+                                <td><?= $row->sakura_ref_no ?></td>
+                                <td><?= $row->brand_code ?></td>
+                                <td><?= $row->order_qty ?></td>
+                                <td><?= $row->item_images ?></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="">Update</a></td>
+>>>>>>> f790849e208a86381194515792ad20dd16b3ed84
                             </tr>
                             <?php } ?>
                             <tr>
@@ -86,10 +105,10 @@
                     </table>
                     <br><br>
                     <label>Note</label>
-                    <input type="text" class="form-control" name="note" value="Inner Box Menggunakan Cetak Printing" readonly>
+                    <input type="text" class="form-control" name="note" value="<?= $res->approve_note ?>" readonly>
                     <br>
                     <br>
-                    <a href="<?= base_url(); ?>index.php/packaging" class="btn btn-info ml-1" style="float:right;" type="close">Back</a>
+                    <a href="<?= base_url(); ?>packaging" class="btn btn-info ml-1" style="float:right;" type="close">Back</a>
                 </div>
             </div>
         </div>

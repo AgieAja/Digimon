@@ -7,6 +7,7 @@ class Packaging extends CI_Controller
 
         $this->load->model('m_request_header');
         $this->load->model('m_packaging');
+        $this->load->model('m_request_detail');
 
         if($this->session->userdata('status') != 'login'){
                 redirect('auth');
@@ -35,11 +36,22 @@ class Packaging extends CI_Controller
         $data['body'] = "packaging/v_detail_packaging";
 
         $id = $this->uri->segment(3);
+<<<<<<< HEAD
         $request_header = $this->m_request_header;
         $data['res'] = $request_header->retrieveRequestHeaderJoin($id);
         $packaging = $this->m_packaging;
         $data['listDetail'] = $packaging->retrievePackagingDetail($id);
         $data['no'] =1;
+=======
+
+
+        $packaging = $this->m_packaging;
+        $req_detail = $this->m_request_detail;
+        $data['res'] = $packaging->retrievePackagingHeader($id);
+        $data['listDetail'] = $req_detail->retrieveRequestDetailId($id);
+        
+        $data['no']=1;
+>>>>>>> f790849e208a86381194515792ad20dd16b3ed84
         $this->load->view('v_home', $data);
     }
 }

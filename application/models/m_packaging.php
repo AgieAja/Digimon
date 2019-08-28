@@ -19,7 +19,7 @@ class m_packaging extends CI_Model
 
     public function retrievePackagingJoin(){
 
-        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,s.user_name as sales
+        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,ra.approve_note,s.user_name as sales
                 FROM request_headers as rh
                 LEFT JOIN customers as c
                 ON rh.customer_code = c.customer_code
@@ -35,6 +35,7 @@ class m_packaging extends CI_Model
         return  $query->result();
     }
 
+<<<<<<< HEAD
     public function retrievePackagingDetail($id){
 
         $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,s.user_name as sales,ds.status,ds.image,ds.remark,ds.sakura_version_no,ds.created_at as ds_create,rd.*
@@ -55,6 +56,20 @@ class m_packaging extends CI_Model
                 
             ");
         return  $query->result();
+=======
+    public function retrievePackagingHeader($id){
+
+        // $data = $this->db->get_where($this->_table,["request_header_id",$id])->row();
+
+        return $query = $this->db->query("SELECT rh.*,ra.approve_note,ra.approve_status
+                FROM request_headers as rh
+                LEFT JOIN request_approves as ra
+                ON rh.request_header_id = ra.request_header_id
+                WHERE rh.request_header_id = '$id' AND
+                ra.approve_status = 3                
+            ")->row();
+
+>>>>>>> f790849e208a86381194515792ad20dd16b3ed84
     }
     
 
