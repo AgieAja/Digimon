@@ -43,7 +43,7 @@ class m_request_header extends CI_Model
     public function retrieveRequestHeaderJoin($request_header_id)
     {
         // return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->row();
-        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status
+        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,ra.approve_note
                 FROM request_headers as rh
                 LEFT JOIN customers as c
                 ON rh.customer_code = c.customer_code
