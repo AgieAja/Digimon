@@ -7,6 +7,8 @@ class Bom extends CI_Controller
 
         $this->load->model('m_request_header');
         $this->load->model('m_request_detail');
+        $this->load->model('m_bom');
+
 
         if($this->session->userdata('status') != 'login'){
                 redirect('auth');
@@ -22,7 +24,7 @@ class Bom extends CI_Controller
         $data['footer'] = "templates/v_footer";
         $data['pluginjs'] = "templates/v_pluginjs";
         $data['body'] = "bom/v_list_bom";
-        // $data['listRequest'] = $this->m_request_header->retrieveRequestPackaging();
+        // $data['listRequest'] = $this->m_request_header->retrieveRequestBOM();
 
         $this->load->view('v_home', $data);
     }

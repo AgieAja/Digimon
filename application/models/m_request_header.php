@@ -28,7 +28,7 @@ class m_request_header extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
-                WHERE ra.approve_status = 1
+                WHERE ra.approve_status = 1 || ra.approve_status =2 || ra.approve_status=0
                 
             ");
         return  $query->result();
@@ -43,7 +43,7 @@ class m_request_header extends CI_Model
     public function retrieveRequestHeaderJoin($request_header_id)
     {
         // return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->row();
-        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status,ra.approve_note
+        $query = $this->db->query("SELECT rh.*,c.name,c.customer_code,u.user_name,ra.approve_status,ra.approve_note
                 FROM request_headers as rh
                 LEFT JOIN customers as c
                 ON rh.customer_code = c.customer_code
@@ -56,7 +56,10 @@ class m_request_header extends CI_Model
         return $query->row();
 
     }
+    public function retrieveRequestBOM(){
 
+        
+    }
 
     public function saveHeader(){
         $post = $this->input->post();

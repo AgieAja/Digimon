@@ -104,9 +104,10 @@ class Request extends CI_Controller
     public function update(){
         $request_header = $this->m_request_header;
         $request_detail = $this->m_request_detail;
-
+        $request_approve = $this->m_approve;
         $ress_header = $request_header->updateHeader();
         $ress_detail = $request_detail->updateDetail();
+        $ress_approve = $request_approve->revisied();
 
         if ($ress_detail){
             $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>

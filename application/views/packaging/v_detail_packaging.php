@@ -1,3 +1,6 @@
+<?php 
+echo $this->session->flashdata("msg");
+?>
 <form action="cek" method="post">
     <div class="row">
         <div class="col-lg-12 grid-margin">

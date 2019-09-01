@@ -18,6 +18,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($listDrawing as $row) { ?>
+                                <tr>
+                                    <td><?= $row->request_no ?></td>
+                                    <td><?= $row->name ?></td>
+                                    <td><?= $row->user_name ?></td>
+                                    <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
+                                    <td><?= $row->name_approve ?></td>
+                                    <td><?= date('d-M-Y',strtotime($row->approve_date)) ?></td>
+                                     <td>
+                                        <a href="<?php echo base_url();?>drawing/detail/<?= $row->request_header_id ?>">Detail</a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                                 <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
