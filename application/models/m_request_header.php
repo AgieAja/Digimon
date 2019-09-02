@@ -58,7 +58,43 @@ class m_request_header extends CI_Model
     }
     public function retrieveRequestBOM(){
 
-        
+        $query = $this->db->query("SELECT rh.*,ra.approve_by,ra.approve_date,u.user_name,c.name
+            FROM request_approves as ra
+            LEFT JOIN request_headers as rh
+            ON ra.request_header_id = rh.request_header_id
+            LEFT JOIN customers as c
+            ON rh.customer_code = c.customer_code
+            LEFT JOIN users as u
+            ON ra.approve_by = u.id
+            WHERE ra.approve_status = 3              
+            ");
+        return  $query->result();
+    }
+
+    public function retrieveBOMid($id){
+        $query = $this->db->get_where($this->_table,['request_header_id'],$id)->row();
+
+        return $query;
+    }
+
+    public function retrieveReceive()
+    {
+        $query = $this->db->query("SELECT rh.*,ra.approve_by,ra.approve_date,u.user_name,c.name,us.user_name as po_create
+            FROM request_approves as ra
+            LEFT JOIN request_headers as rh
+            ON ra.request_header_id = rh.request_header_id
+            LEFT JOIN customers as c
+            ON rh.customer_code = c.customer_code
+            LEFT JOIN users as u
+            ON ra.approve_by = u.id
+            LEFT JOIN users as us
+            ON rh.created_by = us.id
+            WHERE ra.approve_status = 3              
+            ");
+
+        // var_dump($query->result());
+        // exit;
+        return $query->result();
     }
 
     public function saveHeader(){

@@ -143,6 +143,10 @@ foreach ($listDetail as $row) { ?>
                 <?php }
             } ?>
           </select>
+          <label class="h5">Inner BOX Spec</label>
+          <input type="file" name="inner_box" value="" class="form-control">
+          <label class="h5">Outter BOX Spec</label>
+          <input type="file" name="outter_box" value="" class="form-control">
           <div class="">
             <label class="h5">Packaging Remark</label>
           <input type="text" name="packaging_remark" value="<?= $row->pac_remark ?>" class="form-control">

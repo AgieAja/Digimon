@@ -78,7 +78,7 @@ class m_drawing extends CI_Model
                 ON rh.request_header_id = rd.request_header_id
                 LEFT JOIN drawing_specs as ds
                 ON  ds.request_detail_id = rd.request_detail_id
-                WHERE ra.approve_status = 3
+                WHERE ra.approve_status = 3 || rh.request_header_id =$id
                 
             ");
         return  $query->result();

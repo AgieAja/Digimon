@@ -47,11 +47,11 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $row->customer_info_no ?></td>
-                                <td><?= $row->sakura_ref_no ?></td>
+                                <td><?= $row->sakura_version_no ?></td>
                                 <td><?= $row->brand_code ?></td>
-                                <td></td>
-                                <td><?= $row->item_images ?></td>
-                                <td></td>
+                                <td><?= date('d-M-Y',strtotime($row->bom_created_at)) ?></td>
+                                <td><?= $row->movex_filter_master ?></td>
+                                <td><?= $row->sap_filter_master ?></td>
                             </tr>
                             <?php } ?>
                             <tr>

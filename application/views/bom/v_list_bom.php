@@ -20,20 +20,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <?php foreach ($listRequest as $row) { ?>
+                                <?php foreach ($listRequest as $row) { ?>
                                 <tr>
                                     <td><?= $row->request_no  ?></td>
                                     <td><?= $row->name  ?></td>
                                     <td><?= $row->po_number_customer  ?></td>
-                                    <td><?= $row->sales  ?></td>
-                                    <td><?= $row->updated_at  ?></td>
+                                    <td><?= $row->user_name  ?></td>
+                                    <td><?= date('d-F-Y',strtotime($row->approve_date))  ?></td>
                                     <td>
-                                        <a href="<?php echo base_url();?>bom/detail/<?= $row->request_header_id ?>">Detail</a>
+                                        <a href="<?php echo base_url();?>BOM/detail/<?= $row->request_header_id ?>">Detail</a>
                                     </td>
                                     </td>
 
                                 </tr>
-                                <?php } ?> -->
+                                <?php } ?>
                                 <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
