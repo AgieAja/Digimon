@@ -37,8 +37,8 @@ class m_bom extends CI_Model
         $query = $this->db->get_where($this->_table,['packaging_id',$post['packaging_id']])->row();
         
         if (empty($query)) {
-            $this->movex_filter_master = $post['movex_filter'];
-            $this->sap_filter_master = $post['sap_filter'];
+            $this->movex_filter_master = str_replace(" ","_",$_FILES['movex_filter']['name']);
+            $this->sap_filter_master = str_replace(" ","_",$_FILES['sap_filter']['name']);
             $this->packaging_id = $post['packaging_id'];
             $this->status = $post['status'];
             $this->remark = $post['bom_remark'];

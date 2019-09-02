@@ -38,12 +38,13 @@ class m_drawing extends CI_Model
     public function updaterow(){
         $post = $this->input->post();
 
-        $query = $this->db->get_where($this->_table,['request_detail_id',$post['request_detail_id']])->row();
+        $query = $this->db->get_where($this->_table,['request_detail_id'=>$post['request_detail_id']])->row();
         
         if (empty($query)) {
             $this->sakura_version_no = $post['sakura_version'];
             $this->request_detail_id = $post['request_detail_id'];
             $this->status = $post['status'];
+            $this->image = str_replace(" ","_",$_FILES['drawing_img']['name']);
             $this->remark = $post['drawing_remark'];
             $this->created_at = date('Y-m-d');
             $this->created_by = $this->session->userdata('id');
@@ -52,12 +53,13 @@ class m_drawing extends CI_Model
             
             $id = $query->drawing_spec_id;
             $data['sakura_version_no'] = $post['sakura_version'];
-            $data['status'] = $post['packaging_status'];
-            $data['remark'] = $post['packaging_remark'];
+            $data['status'] = $post['status'];
+            $data['image'] = str_replace(" ","_",$_FILES['drawing_img']['name']);
+            $data['remark'] = $post['drawing_remark'];
             $data['updated_at'] = date('Y-m-d');
             $data['updated_by'] = $this->session->userdata('id');
 
-            $this->db->where('drawing_specs',$id);
+            $this->db->where('drawing_spec_id',$id);
             $this->db->update('drawing_specs',$data);
         }
     }

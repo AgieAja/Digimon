@@ -67,14 +67,15 @@ echo $this->session->flashdata("msg");
                                 </td>
                                 <td><?= $row->draw_remark ?></td>
                                 <td>
-                                <a href="#" data-toggle="modal" data-target="#imgRequestModal">image</a> |
-                                <?php if (empty($row->draw_status)) { ?>
-                                <a href="#" data-toggle="modal" data-target="#updateModal<?= $row->request_detail_id ?>">Update</a>
-                                <?php } ?>
+                                    <?php $str = str_replace(".","",$row->item_images); ?>
+                                    <a href="#" data-toggle="modal" data-target="#dw_image<?= $str ?>">image</a> |
+                                    <?php if (empty($row->draw_status)) { ?>
+                                    <a href="#" data-toggle="modal" data-target="#updateModal<?= $row->request_detail_id ?>">Update</a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <?php } ?>
-                            <tr>
+                            <!-- <tr>
                                 <td>1</td>
                                 <td>1111.1111</td>
                                 <td>C-1123</td>
@@ -93,7 +94,7 @@ echo $this->session->flashdata("msg");
                                 <td>Pending</td>
                                 <td>T.Test Tresure</td>
                                 <td><a href="">Image</a> | <a href="">Update</a></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <br><br>
@@ -108,40 +109,21 @@ echo $this->session->flashdata("msg");
     </div>
 </form>
 
-<div id="imgRequestModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header modal-primary">
-        <h3 class="modal-title">Image Ref
-        </h3>
-        <button class="close" data-dismiss="modal" type="close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h5><img src="<?= base_url(); ?>assets/images/sample.jpg" class="img img-responsive img-thumbnail"></h5>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
-        <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <?php
 foreach ($listDetail as $row) { ?>
-    <div id="updateModal<?= $row->request_detail_id ?>" class="modal fade" role="dialog">
+<div id="updateModal<?= $row->request_detail_id ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header modal-primary">
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
-      <form action="<?php echo base_url(); ?>Drawing/updaterow" method="POST">
+      <form action="<?php echo base_url(); ?>Drawing/updaterow" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
           <label class="h5">Sakura Version No</label>
           <input type="hidden" name="request_detail_id" value="<?= $row->request_detail_id ?>" class="form-control">
           <input type="text" name="sakura_version" class="form-control">
           <label class="h5">Drawing Status</label>
-          <select name="status" class="form-control" required>
+          <select id="status"  name="status" class="form-control" onchange="status_(this);" required>
             <?php
             if (empty($row->draw_status)) { ?>
             <option value="">-pilih--</option>
@@ -161,8 +143,11 @@ foreach ($listDetail as $row) { ?>
             <label class="h5">Drawing Remark</label>
             <input type="text" name="drawing_remark" value="<?= $row->draw_remark ?>" class="form-control">
           </div>
-          <label class="h5">img</label>
-            <input type="file" name="drawing_img" value="<?= $row->draw_remark ?>" class="form-control">
+          <div id="drawing">
+            <label class="h5">img</label>
+            <input type="file" name="drawing_img" value="" class="form-control">
+          </div>
+          
         
       </div>
       <div class="modal-footer">
@@ -173,4 +158,40 @@ foreach ($listDetail as $row) { ?>
     </div>
   </div>
 </div>
+
+<?php $str = str_replace(".","",$row->item_images); ?>
+<div id="dw_image<?= $str ?>" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header modal-primary">
+        <h3 class="modal-title">Image Ref
+        </h3>
+        <button class="close" data-dismiss="modal" type="close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h5><img src="<?= base_url(); ?>uploads/<?= $row->item_images ?>" class="img img-responsive img-thumbnail"></h5>
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php } ?>
+
+<script>
+    $(document).ready(function(){
+        $("#drawing").hide();
+    });
+
+    function status_(){
+        var val=$("#status").val();
+        if(val==1){
+           $("#drawing").show();
+        }else{
+            $("#drawing").hide();
+        }
+    }
+
+</script>

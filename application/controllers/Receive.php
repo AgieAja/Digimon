@@ -43,4 +43,25 @@ class Receive extends CI_Controller
 
         $this->load->view('v_home', $data);
     }
+
+    public function confirm()
+    {
+        $receive = $this->m_receive;
+        $res = $receive->confirm();
+        exit;
+
+        if ($res){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Warning!</strong> Failed saved.
+            </div>");
+            redirect($_SERVER['HTTP_REFERER']);
+        }else{
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Information!</strong> Data has been saved. 
+            </div>");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
 }

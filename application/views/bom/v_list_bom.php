@@ -34,7 +34,7 @@
 
                                 </tr>
                                 <?php } ?>
-                                <tr>
+                                <!-- <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
                                     <td>PO no: A-20190823-125</td>
@@ -43,7 +43,7 @@
                                     <td>
                                         <a href="<?= base_url(); ?>index.php/bom/detail">Detail</a>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>

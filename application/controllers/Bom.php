@@ -47,6 +47,21 @@ class Bom extends CI_Controller
 
     public function updaterow(){
 
+        $movex_filter = $_FILES['movex_filter']['name'];
+        $tmp = $_FILES['movex_filter']['tmp_name'];
+        $type = $_FILES['movex_filter']['type'];
+        $error = $_FILES['movex_filter']['error'];
+        $size = $_FILES['movex_filter']['size'];
+
+        $sap_filter = $_FILES['sap_filter']['name'];
+        $tmp_filter = $_FILES['sap_filter']['tmp_name'];
+        $type_filter = $_FILES['sap_filter']['type'];
+        $error_filter = $_FILES['sap_filter']['error'];
+        $size_filter = $_FILES['sap_filter']['size'];
+
+        move_uploaded_file($tmp, 'uploads/'.str_replace(" ","_",$movex_filter));
+        move_uploaded_file($tmp_filter, 'uploads/'.str_replace(" ","_",$sap_filter));
+
         $bom = $this->m_bom;
         $res = $bom->updaterow();
 

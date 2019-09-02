@@ -74,6 +74,6 @@ class m_approve extends CI_Model
 
     public function note($id){
         $post = $this->input->post();
-        return $query = $this->db->get_where($this->_table,['request_header_id',$id])->row();
+        return $query = $this->db->get_where($this->_table,['request_header_id'=>$id])->row();
     }
 }

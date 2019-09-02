@@ -8,7 +8,7 @@ class Drawing extends CI_Controller
         $this->load->model('m_request_header');
         $this->load->model('m_packaging');
         $this->load->model('m_approve');
-
+        $this->load->helper(array('form', 'url', 'file'));
 
         if($this->session->userdata('status') != 'login'){
                 redirect('auth');
@@ -52,8 +52,20 @@ class Drawing extends CI_Controller
     }
     public function updaterow()
     {
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = '0';
+
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+        $this->upload->do_upload('drawing_img');
+        $image_data = $this->upload->data();
+        // $file_path = $image_data[full_path];
+
+
         $drawing = $this->m_drawing;
         $res = $drawing->updaterow();
+
 
         if ($res){
             $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>

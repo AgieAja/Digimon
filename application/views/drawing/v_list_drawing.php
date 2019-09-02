@@ -31,7 +31,7 @@
                                     </td>
                                 </tr>
                                 <?php } ?>
-                                <tr>
+                                <!-- <tr>
                                     <td>RQM000001</td>
                                     <td>Allied (M) Filtration Solution Nc</td>
                                     <td>Nurahman_1</td>
@@ -41,7 +41,7 @@
                                     <td>
                                         <a href="<?php echo base_url();?>index.php/drawing/detail">Detail</a>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
