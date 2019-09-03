@@ -25,7 +25,8 @@ class M_drawing extends CI_Model
 		LEFT JOIN request_headers as rh ON rh.request_header_id = rd.request_header_id
 		LEFT JOIN request_approves as ra ON rh.request_header_id = ra.request_header_id
 		LEFT JOIN customers as c ON c.customer_code = rh.customer_code
-		WHERE ra.approve_status = 3");
+		LEFT JOIN drawing_specs as ds ON ds.request_detail_id = rd.request_detail_id
+		WHERE ra.approve_status = 3 AND ds.drawing_spec_id is null");
         return  $query->result();
     }
 
