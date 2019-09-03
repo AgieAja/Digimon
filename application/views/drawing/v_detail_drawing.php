@@ -18,19 +18,14 @@
 							<label>Drawing Status</label>
 							<select id="status"  name="status" class="form-control" onchange="status_(this);" required>
 							<?php
-								if (empty($row->draw_status)) { ?>
-								<option value="">-pilih--</option>
+								if (empty($res->rd_status)) { ?>
+								<option value="">--pilih--</option>
 								<option value="0">Pending</option>
 								<option value="1">Ok</option>
-								<?php }else{ 
-								    if ($row->draw_status ==0) { ?>
+								<?php }elseif($res->rd_status ==1){ ?>
 								    <option value="0">Pending</option>
 								    <option value="1">Ok</option>
-								    <?php }elseif($row->draw_status==1){ ?>
-								    <option value="1">Ok</option>
-								    <option value="0">Pending</option>
-								<?php }
-							} ?>
+								<?php } ?>
 							</select>
 							<div id="drawing">
 								<label>Sakura Version No</label>

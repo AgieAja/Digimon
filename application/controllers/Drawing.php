@@ -55,10 +55,13 @@ class Drawing extends CI_Controller
         $this->upload->do_upload('drawing_img');
         $image_data = $this->upload->data();
 
-        // var_dump($_FILES,$_POST);
-
-        $drawing = $this->M_drawing;
-        $res = $drawing->save();
+        if ($this->input->post('status')==1) {
+            $drawing = $this->M_drawing;
+            $res = $drawing->save();
+        }else{
+            $detail = $this->M_request_detail;
+            $res = $detail->updateRequest();
+        }
 
         if ($res){
             $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>

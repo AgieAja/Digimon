@@ -83,7 +83,7 @@ class M_drawing extends CI_Model
 
     public function drawingDetail($id)
     {
-        return $query = $this->db->query("SELECT rd.*,ds.status as draw_status,ds.*
+        return $query = $this->db->query("SELECT rd.*,rd.status as rd_status,ds.status as draw_status,ds.*
                 FROM request_details as rd
                 LEFT JOIN drawing_specs as ds
                 ON rd.request_detail_id = ds.request_detail_id
@@ -103,37 +103,15 @@ class M_drawing extends CI_Model
     {
        $post =  $this->input->post();
 
-        // $query = $this->db->get_where($this->_table,['request_detail_id'=>$post['request_detail_id']])->row();
+        $this->request_detail_id = $post['request_detail_id'];
+        $this->sakura_version_no = $post['sakura_version_no'];
+        $this->status = $post['status'];
+        $this->image = str_replace(" ","_",$_FILES['drawing_img']['name']);
+        $this->remark = $post['drawing_remark'];
+        $this->created_at = date('Y-m-d');
+        $this->created_by = $this->session->userdata('id');
 
-       if($post['status']==1) {
-
-            $this->request_detail_id = $post['request_detail_id'];
-            $this->sakura_version_no = $post['sakura_version_no'];
-            $this->status = $post['status'];
-            $this->image = str_replace(" ","_",$_FILES['drawing_img']['name']);
-            $this->remark = $post['drawing_remark'];
-            $this->created_at = date('Y-m-d');
-            $this->created_by = $this->session->userdata('id');
-
-            $this->db->insert($this->_table,$this);
-
-
-        }
-       // }else{
-
-       //      $data['drawing_spec_id'] = $query->drawing_spec_id;
-       //      $data['request_detail_id'] = $post['request_detail_id'];
-       //      $data['sakura_version_no'] = $post['sakura_version_no'];
-       //      $data['status'] = $post['status'];
-       //      $data['image'] = str_replace(" ","_",$_FILES['drawing_img']['name']);
-       //      $data['remark'] = $post['drawing_remark'];
-       //      $data['updated_at'] = date('Y-m-d');
-       //      $data['updated_by'] = $this->session->userdata('id');
-
-       //      $this->db->update($this->_table,$data);
-
-       // }
-
+        $this->db->insert($this->_table,$this);
 
     }
 
