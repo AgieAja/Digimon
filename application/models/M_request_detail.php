@@ -94,6 +94,11 @@ class M_request_detail extends CI_Model
         $this->db->delete('request_details');
 
     }
+
+    public function headerID($id){
+
+        return $query = $this->db->get_where($this->_table,['request_detail_id'=>$id])->row();
+    }
 }
 
 
