@@ -12,6 +12,9 @@
                                     <th>Customer Info No</th>
                                     <th>Sakura Ref No</th>
                                     <th>Customer Name</th>
+                                    <th>Created By</th>
+                                    <th>Created At</th>
+                                    <!-- <th>Sales</th> -->
                                     <th>Order Qty</th>
                                     <th>Action</th>
                                 </tr>
@@ -23,6 +26,9 @@
                                     <td><?= $row->customer_info_no; ?></td>
                                     <td><?= $row->sakura_ref_no; ?></td>
                                     <td><?= $row->c_name; ?></td>
+                                    <td><?= $row->user_name; ?></td>
+                                    <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
+                                    <!-- <td><?= $row->created_by; ?></td> -->
                                     <td><?= $row->order_qty; ?></td>
                                      <td>
                                         <a href="<?php echo base_url();?>Packaging/detail/<?= $row->drawing_spec_id; ?>">Detail</a>

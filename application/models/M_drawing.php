@@ -19,11 +19,12 @@ class M_drawing extends CI_Model
 
     public function join_table()
     {
-        $query = $this->db->query("SELECT rd.request_detail_id, rh.request_no, rd.customer_info_no
-		, rd.sakura_ref_no, rd.order_qty, c.name as customer_name
+        $query = $this->db->query("SELECT rd.request_detail_id, rh.request_no, rd.customer_info_no,rd.sakura_ref_no,rd.order_qty, c.name as customer_name,rh.created_at as rh_created_at, u.user_name as sales,us.user_name
 		FROM request_details as rd 
 		LEFT JOIN request_headers as rh ON rh.request_header_id = rd.request_header_id
+        LEFT JOIN users as us ON rh.created_by = us.id
 		LEFT JOIN request_approves as ra ON rh.request_header_id = ra.request_header_id
+        LEFT JOIN users as u ON ra.approve_by = u.id
 		LEFT JOIN customers as c ON c.customer_code = rh.customer_code
 		LEFT JOIN drawing_specs as ds ON ds.request_detail_id = rd.request_detail_id
 		WHERE ra.approve_status = 3 AND ds.drawing_spec_id is null");
