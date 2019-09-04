@@ -83,7 +83,7 @@ class M_drawing extends CI_Model
 
     public function drawingDetail($id)
     {
-        return $query = $this->db->query("SELECT rd.*,rd.status as rd_status,ds.status as draw_status,ds.*
+        return $query = $this->db->query("SELECT rd.*,rd.status as rd_status,rd.remark as rd_remark,ds.status as draw_status,ds.*
                 FROM request_details as rd
                 LEFT JOIN drawing_specs as ds
                 ON rd.request_detail_id = ds.request_detail_id
@@ -105,14 +105,30 @@ class M_drawing extends CI_Model
 
         $this->request_detail_id = $post['request_detail_id'];
         $this->sakura_version_no = $post['sakura_version_no'];
-        $this->status = $post['status'];
+        // $this->status = $post['status'];
         $this->image = str_replace(" ","_",$_FILES['drawing_img']['name']);
         $this->remark = $post['drawing_remark'];
         $this->created_at = date('Y-m-d');
         $this->created_by = $this->session->userdata('id');
-
         $this->db->insert($this->_table,$this);
 
+    }
+    public function updateStatus(){
+        $post = $this->input->post();
+
+        $id = $post['drawing_spec_id'];
+        if ($post['status']==0) {
+
+            $data['status'] = 1;
+            $data['remark'] = $post['packaging_remark'];
+
+        }else{
+            $data['status'] = 2;
+            $data['remark'] = $post['packaging_remark'];
+        }
+
+        $this->db->where('drawing_spec_id',$id);
+        $this->db->update($this->_table,$data);
     }
 
 
