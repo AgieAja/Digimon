@@ -29,7 +29,7 @@
                                     <td><?= $row->c_name; ?></td>
                                     <td><?= $row->user_name; ?></td>
                                     <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
-                                    <td><?= $row->user_name; ?></td>
+                                    <td><?= $row->sales; ?></td>
                                     <td>
                                     <?php if ($row->ds_status == null) {
                                         echo "New";

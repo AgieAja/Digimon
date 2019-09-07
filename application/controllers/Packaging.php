@@ -53,16 +53,34 @@ class Packaging extends CI_Controller
     }
     public function save(){
 
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = '0';
+        // $config['upload_path']          = './uploads/';
+        // $config['allowed_types']        = 'gif|jpg|png';
+        // $config['max_size']             = '0';
 
-        $this->load->library('upload');
-        $this->upload->initialize($config);
-        $this->upload->do_upload('pack_img');
-        $image_data = $this->upload->data();
+        // $this->load->library('upload');
+        // $this->upload->initialize($config);
+        // $this->upload->do_upload('inner_box');
+        // $this->upload->do_upload('outter_box');
+        // $image_data = $this->upload->data();
 
+        $inner_box = $_FILES['inner_box']['name'];
+        $tmp_inner = $_FILES['inner_box']['tmp_name'];
+        $type_inner = $_FILES['inner_box']['type'];
+        $error_inner = $_FILES['inner_box']['error'];
+        $size_inner = $_FILES['inner_box']['size'];
 
+        
+
+        $outter_box = $_FILES['outter_box']['name'];
+        $tmp_outter = $_FILES['outter_box']['tmp_name'];
+        $type_outter = $_FILES['outter_box']['type'];
+        $error_outter = $_FILES['outter_box']['error'];
+        $size_outter = $_FILES['outter_box']['size'];
+
+        move_uploaded_file($tmp_inner, 'uploads/'.$inner_box);
+        move_uploaded_file($tmp_outter, 'uploads/'.$outter_box);
+
+       
         if ($this->input->post('status')==1) {
 
             $packaging = $this->M_packaging;

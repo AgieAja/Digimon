@@ -18,11 +18,19 @@
 							<a href="#" data-toggle="modal" data-target="#ds_img<?= $ds_str ?>" style="text-decoration: none">
 								<input type="text" name="brand" value="<?= $res->ds_img ?>" class="form-control" readonly>
 							</a>
-							<label>Packaging</label>
-							<?php $pc_str = str_replace(".","",$res->pc_img); ?>
-							<a href="#" data-toggle="modal" data-target="#pc_img<?= $pc_str ?>" style="text-decoration: none">
-								<input type="text" name="brand" value="<?= $res->pc_img ?>" class="form-control" readonly>
+							<label>Inner Box</label>
+							<br/>
+							<?php $inner_str = str_replace(".","",$res->inner_box_spec); ?>
+							<a href="#" class=" btn btn-success" data-toggle="modal" data-target="#inner_img<?= $inner_str ?>" style="text-decoration: none">Show Image Pdf
 							</a>
+							<br/>
+							<label>Outter Box</label>
+							<br/>
+							<?php $outter_str = str_replace(".","",$res->outter_box_spec); ?>
+							<a href="#" class=" btn btn-success" data-toggle="modal" data-target="#outter_img<?= $outter_str ?>" style="text-decoration: none">Show Image Pdf
+							</a>
+							<br/>
+							<br/>
 							<label>BOM Status</label>
 							<select id="status"  name="status" class="form-control" onchange="status_(this);" required>
 							<?php
@@ -61,7 +69,7 @@
 		</div>		
 	</div>
 </div>
-<div id="ds_img<?= $ds_str ?>" class="modal fade " role="dialog">
+<div id="inner_img<?= $inner_str ?>" class="modal fade " role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
@@ -70,7 +78,7 @@
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
-        <h5><img src="<?= base_url(); ?>uploads/<?= $res->ds_img ?>" class="img img-responsive img-thumbnail"></h5>
+        <embed src="<?= base_url() ?>uploads/<?= $res->inner_box_spec ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="1000px" />
       </div>
       <div class="modal-footer">
         <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
@@ -79,7 +87,7 @@
     </div>
   </div>
 </div>
-<div id="pc_img<?= $ds_str ?>" class="modal fade " role="dialog">
+<div id="outter_img<?= $outter_str ?>" class="modal fade " role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
@@ -88,7 +96,12 @@
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
-        <h5><img src="<?= base_url(); ?>uploads/<?= $res->pc_img ?>" class="img img-responsive img-thumbnail"></h5>
+        <object
+		  data="<?= base_url() ?>uploads/<?= $res->inner_box_spec ?>"
+		  type="application/pdf"
+		  width="100%"
+		  height="1000px">
+		</object>
       </div>
       <div class="modal-footer">
         <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->

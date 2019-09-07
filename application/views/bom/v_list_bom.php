@@ -16,7 +16,7 @@
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Sales</th>
-                                    <!-- <th>Packaging Release</th> -->
+                                    <th>Packaging Release</th>
                                     <!-- <th>Order Qty</th> -->
                                     <th>Status</th>
                                     <th>Action</th>

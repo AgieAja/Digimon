@@ -20,13 +20,15 @@ class M_packaging extends CI_Model
 
     public function join_table()
     {
-        return $query = $this->db->query("SELECT ds.*,rd.*,rh.*,c.name as c_name,u.user_name,ds.status as ds_status
+        return $query = $this->db->query("SELECT ds.*,rd.*,rh.*,c.name as c_name,u.user_name,ds.status as ds_status,us.user_name as sales
                 FROM drawing_specs as ds
                 LEFT JOIN request_details as rd ON ds.request_detail_id = rd.request_detail_id
                 LEFT JOIN request_headers as rh ON rd.request_header_id = rh.request_header_id
                 LEFT JOIN customers as c ON rh.customer_code = c.customer_code
                 LEFT JOIN packagings as pc ON ds.drawing_spec_id = pc.drawing_spec_id
-                LEFT JOIN users as u ON ds.created_by = u.id
+                LEFT JOIN users as u ON  rh.created_by=u.id
+                LEFT JOIN request_approves as ra ON rh.request_header_id=ra.request_header_id
+                LEFT JOIN users as us ON ra.approve_by=us.id
                 WHERE rd.status =  2 AND pc.packaging_id is null
             ")->result();
 
@@ -46,10 +48,10 @@ class M_packaging extends CI_Model
         $post =  $this->input->post();
         
         $this->drawing_spec_id = $post['drawing_spec_id'];
-        $this->inner_box_spec = $post['inner_box'];
-        $this->outter_box_spec = $post['outter_box'];
+        $this->inner_box_spec = $_FILES['inner_box']['name'];
+        $this->outter_box_spec = $_FILES['outter_box']['name'];
         // $this->status = $post['status'];
-        $this->image = $_FILES['pack_img']['name'];
+        // $this->image = $_FILES['pack_img']['name'];
         // $this->remark = $post['packaging_remark'];
         $this->created_at = date('Y-m-d');
         $this->created_by = $this->session->userdata('id');

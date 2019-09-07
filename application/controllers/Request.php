@@ -123,6 +123,7 @@ class Request extends CI_Controller
         $data['body'] = "Request/v_edit_request";
 
         $request_header_id = $this->uri->segment(3);
+        $id = $request_header_id;
         $request_header = $this->M_request_header;
         $data['res'] = $request_header->retrieveRequestId($request_header_id);
         $data['listCustomer']  = $this->M_customer->retrieveCustomerGet();
@@ -130,6 +131,7 @@ class Request extends CI_Controller
         $data['listManufacture'] = $this->M_manufacture->retrieveManufactureGet();
         $data['listWarehouse'] = $this->M_warehouse->retrieveWarehouseGet();
         $data['listBrand'] = $this->M_brand->retrieveBrand();
+        $data['note'] = $this->M_approve->note($id);
 
         $this->load->view('v_home', $data);
     }

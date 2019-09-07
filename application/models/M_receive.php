@@ -21,7 +21,8 @@ class M_receive extends CI_Model
                 LEFT JOIN request_details as rd ON ds.request_detail_id=rd.request_detail_id
                 LEFT JOIN request_headers as rh ON rd.request_header_id=rh.request_header_id
                 LEFT JOIN customers as c ON rh.customer_code=c.customer_code
-                LEFT JOIN users as u ON bom.created_by=u.id
+                LEFT JOIN request_approves as ra ON rh.request_header_id=ra.request_header_id
+                LEFT JOIN users as u ON ra.approve_by=u.id
                 LEFT JOIN users as us ON rh.created_by=us.id
                 LEFT JOIN receives as re ON bom.bom_id=re.bom_id
                 WHERE rd.status = 2 AND re.receive_id is null

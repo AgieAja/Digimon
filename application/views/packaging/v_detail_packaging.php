@@ -31,12 +31,12 @@
 								<?php } ?>
 							</select>
 							<div id="drawing">
-								<label>Image</label>
-								<input type="file" name="pack_img" class="form-control">
-								<label>Inner BOX Spec</label>
-								<input type="text" name="inner_box" class="form-control" autocomplete="off">
-					            <label>Outter BOX Spec</label>
-					            <input type="text" name="outter_box" value="" class="form-control" autocomplete="off">
+								<!-- <label>Image</label>
+								<input type="file" name="pack_img" class="form-control"> -->
+								<label>Inner BOX <span class="text-danger">(Pdf)</span></label>
+								<input type="file" name="inner_box" class="form-control" autocomplete="off">
+					            <label>Outter BOX <span class="text-danger">(Pdf)</span></label>
+					            <input type="file" name="outter_box" value="" class="form-control" autocomplete="off">
 					         </div>
 					         <label>Packaging Remark</label>
 					         <?php if ($res->ds_status == null) { ?>

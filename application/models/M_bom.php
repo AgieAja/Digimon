@@ -24,7 +24,8 @@ class M_bom extends CI_Model
             LEFT JOIN request_headers as rh ON rd.request_header_id = rh.request_header_id
             LEFT JOIN customers as c ON rh.customer_code=c.customer_code
             LEFT JOIN users as u ON rh.created_by=u.id
-            LEFT JOIN users as us ON pc.created_by=us.id
+            LEFT JOIN request_approves as ra ON rh.request_header_id=ra.request_header_id
+            LEFT JOIN users as us ON ra.approve_by=us.id
             LEFT JOIN bill_of_materials as bom ON pc.packaging_id = bom.packaging_id
             WHERE rd.status = 2 AND bom.packaging_id is null 
             ")->result();

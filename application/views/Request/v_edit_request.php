@@ -96,14 +96,40 @@
                                     </select>
                                 </td>
                                 <td><input class="form-control" type="number" name="order_qty[]" value="<?= $row->order_qty ?>"></td>
-                                <td><input class="form-control" type="file"><?= $row->item_images ?></td>
+                                <td><input class="form-control" type="file">
+                                    <?php $strImg = str_replace(".", "", $row->item_images) ?>
+                                    <a href="#" data-toggle="modal" data-target="#itemImages<?= $strImg ?>"><?= $row->item_images ?></a>
+                                </td>
                                 <td><a href="<?php echo base_url().'request/deleterow/'.$row->request_detail_id ?>" class="btn btn-danger">-</a></td>
                             </tr>
+
+                            <div id="itemImages<?= $strImg ?>" class="modal fade " role="dialog">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header modal-primary">
+                                    <h3 class="modal-title">Image
+                                    </h3>
+                                    <button class="close" data-dismiss="modal" type="close">&times;</button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <h5><img src="<?= base_url(); ?>uploads/<?= $row->item_images ?>" class="img img-responsive img-thumbnail"></h5>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
+                                    <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                         <?php } ?>
                             
                         </tbody>
                     </table>
                     <br/>
+                    <label>Note</label>
+                    <input type="text" class="form-control" name="note" value="<?= $note->approve_note ?>" placeholder="" readonly>
+                    <br>
+                    <br>
                     <!-- <button type="button" class="btn btn-success" id="tambahdata">Add</button> -->
                     <br>
                     <br>
