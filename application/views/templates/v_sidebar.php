@@ -43,17 +43,41 @@
 			</ul>
 		</div>
 		</li>
-		
-		
-		<?php $sessionAccess = $this->session->userdata('access'); if ($sessionAccess['Report'][0] === 1) { ?>
+
 		<li class="nav-item">
-			<a class="nav-link" href="#">
+		<a class="nav-link" data-toggle="collapse" href="#report">
+			<i class="menu-icon mdi mdi-chart-line"></i>
+						<span class="menu-title">Report</span>
+						<i class="menu-arrow"></i>
+					</a>
+					<div class="collapse" id="report">
+			<ul class="nav flex-column sub-menu">
+			<?php $sessionAccess = $this->session->userdata('access'); for ($i=0; $i < count($sessionAccess['Report']) ; $i++) { ?>
+				<li class="nav-item">
+				<a class="nav-link" href="<?= base_url();?><?= $sessionAccess['Report'][$i]?>"><?= $sessionAccess['Report'][$i]?></a>
+				</li>
+			<?php } ?>
+			</ul>
+		</div>
+		</li>
+		
+		
+		<!-- <?php $sessionAccess = $this->session->userdata('access'); if ($sessionAccess['Report'][0] === 1) { ?>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="collapse" href="#reports">
 			<i class="menu-icon mdi mdi-chart-line"></i>
 			<span class="menu-title">Reports</span>
 			<i class="menu-arrow"></i>
+			<div class="collapse" id="reports">
+				<ul class="nav flex-column sub-menu">
+					<li class="nav-item">
+						<a href=""></a>
+					</li>
+				</ul>
+			</div>
 		</a>
 		</li>
-		<?php } ?>
+		<?php } ?> -->
 		<li class="nav-item">
 		<a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
 			<span>Logout</span>

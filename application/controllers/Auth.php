@@ -93,7 +93,7 @@ class Auth extends CI_controller
                 'Transaction' => [
                     'Request', 'approves','Drawing','Packaging','Bom','Receive'
                 ],
-                'Report' => [1]
+                'Report' => ['Pending','Finish']
 
             ];
             
