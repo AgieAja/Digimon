@@ -22,17 +22,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <?php foreach ($finish as $row) { ?>
+                                <?php foreach ($finish as $row) { ?>
                                 <tr>
                                     <td><?= $row->request_no; ?></td>
-                                    <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
-                                    <td><?= $row->customer_name; ?></td>
+                                    <td><?= date('d-M-Y',strtotime($row->request_date)); ?></td>
+                                    <td><?= $row->name; ?></td>
                                     <td><?= $row->customer_info_no; ?></td>
                                     <td><?= $row->sakura_version_no; ?></td>
                                     <td><?= $row->brand_code; ?></td>
                                     <td><?= $row->manufacture_code; ?></td>
                                     <td><?= $row->warehouse_code; ?></td>
-                                <?php } ?> -->
+                                    <td><?= $row->movex_filter_master; ?></td>
+                                    <td><?= $row->sap_filter_master; ?></td>
+                                    <td><?= $row->rec_status; ?></td>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
