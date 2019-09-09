@@ -34,7 +34,7 @@
                                     <td><?= $row->warehouse_code; ?></td>
                                     <td><?= $row->movex_filter_master; ?></td>
                                     <td><?= $row->sap_filter_master; ?></td>
-                                    <td></td>
+                                    <td><?= $row->b_remark ?></td>
                                 <?php } ?>
                             </tbody>
                         </table>
