@@ -11,6 +11,7 @@ class M_auth extends CI_Model
         $this->db->from('users');
         $this->db->where('user_name', $user_name, 'match');
         $this->db->where('password', md5($password), 'match');
+        $this->db->where('deleted_by',Null);
         return $this->db->get()->row_array();
 
     }

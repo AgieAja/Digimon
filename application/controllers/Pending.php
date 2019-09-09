@@ -23,6 +23,22 @@ class pending extends CI_Controller
         $this->load->view('V_home',$data);
     }
 
+    public function cetak()
+    {
+        $data['pending'] = $this->M_pending->report();
+        $data['tgl_1'] = $this->input->post('tgl_1');
+        $data['tgl_2'] = $this->input->post('tgl_2');
+
+        $this->load->library('pdf');
+
+        $this->pdf->setPaper('A4', 'potrait');
+        $this->pdf->filename = "laporan_pending.pdf";
+
+        $this->pdf->load_view('report/v_pending', $data);
+
+        // $this->load->view('report/v_pending',$data);
+    }
+
     
 
 }

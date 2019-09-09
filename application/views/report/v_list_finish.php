@@ -3,7 +3,17 @@
         <div class="card">
             <div class="card-body">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Finish</h3></div>
+                    <div class="panel-heading"><h3>Finish</h3>
+                        <div class="text-center">
+                             <form action="<?= base_url() ?>Finish/cetak" method="POST">
+                                <input type="date" name="tgl_1" required>
+                                <input type="date" name="tgl_2" required>
+                                <button type="submit" class="btn btn-success">Cetak</button>
+                                <a href="" class="btn btn-info">Refresh</a>
+                            </form>
+                        </div>
+                       
+                    </div>
                     <div class="panel-body table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
