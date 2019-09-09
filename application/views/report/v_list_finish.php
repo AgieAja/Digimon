@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Pending</h3></div>
+                    <div class="panel-heading"><h3>Finish</h3></div>
                     <div class="panel-body table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -34,7 +34,7 @@
                                     <td><?= $row->warehouse_code; ?></td>
                                     <td><?= $row->movex_filter_master; ?></td>
                                     <td><?= $row->sap_filter_master; ?></td>
-                                    <td><?= $row->rec_status; ?></td>
+                                    <td></td>
                                 <?php } ?>
                             </tbody>
                         </table>

@@ -13,7 +13,8 @@ class M_finish extends CI_Model
 				LEFT JOIN drawing_specs as ds ON rd.request_detail_id=ds.request_detail_id
 				LEFT JOIN packagings as p ON ds.drawing_spec_id=p.drawing_spec_id
 				LEFT JOIN bill_of_materials as b ON p.packaging_id=b.packaging_id
-				WHERE rd.status=2 AND ds.status=2 AND p.status=2 AND b.status=2 
+				LEFT JOIN receives as r ON b.bom_id=r.bom_id
+				WHERE rd.status=2 AND ds.status=2 AND p.status=2 AND b.status=2
 			")->result();
 	}
 }
