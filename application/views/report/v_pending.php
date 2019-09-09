@@ -3,6 +3,9 @@
 <head>
 	<title>Laporan <?= $tgl_1  ?> s/d <?= $tgl_2 ?></title>
 	<style type="text/css">
+		body{
+			font-family: sans-serif;
+		}
 		img{
 			margin-top: 40px;
 			float: left;
