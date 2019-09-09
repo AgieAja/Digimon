@@ -109,6 +109,11 @@
 					</thead>
 					<tbody>
                     <?php foreach ($listDashboard as $row) { ?>
+					<?php 
+						if($row->receive_status == 2){
+							continue;
+						}
+					?>
 					<tr>
 						<td><?= $row->request_no; ?></td>
 						<td><?= $row->customer_info_no; ?></td>

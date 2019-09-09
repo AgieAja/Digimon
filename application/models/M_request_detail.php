@@ -49,7 +49,7 @@ class M_request_detail extends CI_Model
                     LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
                     LEFT JOIN users AS u ON u.id = rh.created_by
 					LEFT JOIN users as us ON us.id = ra.approve_by
-                    WHERE rh.deleted_at IS NULL AND r.status < 2 ORDER BY rh.request_header_id DESC";
+                    WHERE rh.deleted_at IS NULL ORDER BY rh.request_header_id DESC";
         
         $sql = $this->db->query($query);
         return $sql->result();
