@@ -59,7 +59,7 @@
 	</div>
 </div>
 <div id="rd_img<?= $rd_str ?>" class="modal fade " role="dialog">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header modal-primary">
         <h3 class="modal-title">Image

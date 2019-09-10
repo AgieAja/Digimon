@@ -14,10 +14,12 @@
 							<label>Brand</label>
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
 							<label>Drawing</label>
+							<br/>
 							<?php $str = str_replace(".","",$res->image); ?>
-							<a href="#" data-toggle="modal" data-target="#drawingIMG<?= $str ?>" style="text-decoration: none">
-								<input type="text" name="brand" value="<?= $res->image ?>" class="form-control" readonly>
+							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#drawingIMG<?= $str ?>" style="text-decoration: none"> Show Drawing Design
+								<!-- <input type="text" name="brand" value="<?= $res->image ?>" class="form-control" readonly> -->
 							</a>
+							<br/>
 							<label>Packaging Status</label>
 							<select id="status"  name="status" class="form-control" onchange="status_(this);" required>
 							<?php
@@ -62,13 +64,13 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
-        <h3 class="modal-title">Image Ref
+        <h3 class="modal-title">Drawing Design
         </h3>
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
       	 <object
-		  data="<?= base_url() ?>uploads/uploads/<?= $res->image ?>"
+		  data="<?= base_url() ?>uploads/<?= $res->image ?>"
 		  type="application/pdf"
 		  width="100%"
 		  height="1000px">
