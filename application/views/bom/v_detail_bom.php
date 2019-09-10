@@ -76,7 +76,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
-        <h3 class="modal-title">Image Ref
+        <h3 class="modal-title">Drawing 
         </h3>
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
@@ -94,7 +94,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
-        <h3 class="modal-title">Image Ref
+        <h3 class="modal-title">Inner BOX
         </h3>
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
@@ -112,7 +112,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
-        <h3 class="modal-title">Image Ref
+        <h3 class="modal-title">Outter BOX
         </h3>
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
