@@ -47,9 +47,9 @@
 								<?php } ?>
 							</select>
 							<div id="drawing">
-								<label>Movex Filter</label>
+								<label>Movex Filter Master</label>
 								<input type="text" name="movex_filter" value="" class="form-control">
-								<label>Sap Filter</label>
+								<label>SAP Filter Master</label>
 								<input type="text" name="sap_filter" value="" class="form-control">
 					         </div>
 					         <label>BOM Remark</label>
