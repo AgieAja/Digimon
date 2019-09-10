@@ -68,7 +68,7 @@
                 <td><?= $row->warehouse_code; ?></td>
                 <td><?= $row->movex_filter_master; ?></td>
                 <td><?= $row->sap_filter_master; ?></td>
-                <td><?= $row->b_remark ?></td>
+                <td><?= date('d-M-Y',strtotime($row->r_created_at)) ?></td>
             <?php } ?>
 		</tbody>
 	</table>
