@@ -67,7 +67,13 @@
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
-        <h5><img src="<?= base_url(); ?>uploads/<?= $res->image ?>" class="img img-responsive img-thumbnail"></h5>
+      	 <object
+		  data="<?= base_url() ?>uploads/uploads/<?= $res->image ?>"
+		  type="application/pdf"
+		  width="100%"
+		  height="1000px">
+		</object>
+        <!-- <h5><img src="<?= base_url(); ?>uploads/<?= $res->image ?>" class="img img-responsive img-thumbnail"></h5> -->
       </div>
       <div class="modal-footer">
         <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
