@@ -27,6 +27,25 @@
 		</div>
 		</li>
 		<?php } ?>
+		<?php $sessionAccess = $this->session->userdata('access'); if ($sessionAccess['Acess'][0] === 1) { ?>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="ui-basic">
+			<i class="menu-icon mdi mdi-content-copy"></i>
+			<span class="menu-title">Masters</span>
+			<i class="menu-arrow"></i>
+		</a>
+		<div class="collapse" id="master">
+			<ul class="nav flex-column sub-menu">
+			<?php $sessionAccess = $this->session->userdata('access'); for ($i=0; $i < count($sessionAccess['Masters']) ; $i++) { ?>
+				<li class="nav-item">
+				<a class="nav-link" href="<?php echo base_url();?><?= $sessionAccess['Masters'][$i]?>"><?= $sessionAccess['Masters'][$i]?></a>
+				</li>
+			<?php } ?>
+			
+			</ul>
+		</div>
+		</li>
+		<?php } ?>
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="collapse" href="#transactions">
 			<i class="menu-icon mdi mdi-backup-restore"></i>
