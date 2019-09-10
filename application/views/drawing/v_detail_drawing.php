@@ -15,11 +15,13 @@
 							<input type="text" name="manufacture" value="<?= $res->manufacture_code ?>" class="form-control" readonly>
 							<label>Brand</label>
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
-							<label>Image</label>
+							<label>Drawin Design</label>
+							<br/>
 							<?php $rd_str= str_replace(".","",$res->item_images); ?>
 							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#rd_img<?= $rd_str ?>" style="text-decoration: none;">
-								<!-- <input type="text" name="" class="form-control" value="<?= $res->item_images ?>" readonly> -->Show Image 
+								<!-- <input type="text" name="" class="form-control" value="<?= $res->item_images ?>" readonly> -->Show  
 							</a>
+							<br/>
 							<label>Drawing Status</label>
 							<select id="status"  name="status" class="form-control" onchange="status_(this);" required>
 							<?php
@@ -57,7 +59,7 @@
 	</div>
 </div>
 <div id="rd_img<?= $rd_str ?>" class="modal fade " role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header modal-primary">
         <h3 class="modal-title">Image
@@ -65,7 +67,8 @@
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
-        <h5><img src="<?= base_url(); ?>uploads/<?= $res->item_images ?>" class="img img-responsive img-thumbnail"></h5>
+        <!-- <h5><img src="<?= base_url(); ?>uploads/<?= $res->item_images ?>" class="img img-responsive img-thumbnail"></h5> -->
+        <embed src="<?= base_url() ?>uploads/<?= $res->item_images ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="1000px" />
       </div>
       <div class="modal-footer">
         <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
