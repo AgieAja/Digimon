@@ -47,7 +47,8 @@ class Drawing extends CI_Controller
     public function save()
     {   
         $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        // $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'application/pdf|pdf|application/octet-stream|csv';
         $config['max_size']             = '0';
 
         $this->load->library('upload');
