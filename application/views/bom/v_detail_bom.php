@@ -15,19 +15,19 @@
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
 							<label>Warehouse</label>
 							<input type="text" name="brand" value="<?= $res->warehouse_code ?>" class="form-control" readonly>
-							<label>Drawing</label>
+							<label>Drawing Spec Design</label>
 							<br/>
 							<?php $ds_str = str_replace(".","",$res->ds_img); ?>
 							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#ds_img<?= $ds_str ?>" style="text-decoration: none">Show Image Pdf
 							</a>
 							<br/>
-							<label>Inner Box</label>
+							<label>Inner Box Spec Design</label>
 							<br/>
 							<?php $inner_str = str_replace(".","",$res->inner_box_spec); ?>
 							<a href="#" class=" btn btn-success" data-toggle="modal" data-target="#inner_img<?= $inner_str ?>" style="text-decoration: none">Show Image Pdf
 							</a>
 							<br/>
-							<label>Outter Box</label>
+							<label>Outter Box Spec Design</label>
 							<br/>
 							<?php $outter_str = str_replace(".","",$res->outter_box_spec); ?>
 							<a href="#" class=" btn btn-success" data-toggle="modal" data-target="#outter_img<?= $outter_str ?>" style="text-decoration: none">Show Image Pdf
