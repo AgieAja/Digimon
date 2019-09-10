@@ -13,10 +13,14 @@
 							<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>" readonly>
 							<label>Brand</label>
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
+							<label>Warehouse</label>
+							<input type="text" name="brand" value="<?= $res->warehouse_code ?>" class="form-control" readonly>
 							<label>Drawing</label>
+							<br/>
 							<?php $ds_str = str_replace(".","",$res->ds_img); ?>
 							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#ds_img<?= $ds_str ?>" style="text-decoration: none">Show Image Drawing Spec
 							</a>
+							<br/>
 							<label>Inner Box</label>
 							<br/>
 							<?php $inner_str = str_replace(".","",$res->inner_box_spec); ?>
