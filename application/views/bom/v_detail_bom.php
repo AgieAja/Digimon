@@ -18,7 +18,7 @@
 							<label>Drawing</label>
 							<br/>
 							<?php $ds_str = str_replace(".","",$res->ds_img); ?>
-							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#ds_img<?= $ds_str ?>" style="text-decoration: none">Show Image Drawing Spec
+							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#ds_img<?= $ds_str ?>" style="text-decoration: none">Show Image Pdf
 							</a>
 							<br/>
 							<label>Inner Box</label>
