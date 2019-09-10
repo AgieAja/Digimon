@@ -36,7 +36,7 @@ class M_packaging extends CI_Model
 
     public function packagingDetail($id)
     {
-        return $query = $this->db->query("SELECT rd.*,ds.*,ds.status as ds_status,ds.remark as ds_remark
+        return $query = $this->db->query("SELECT rd.*,ds.*,ds.status as ds_status,ds.remark as ds_remark,rd.order_qty
                 FROM drawing_specs as ds
                 LEFT JOIN request_details as rd ON ds.request_detail_id=rd.request_detail_id
                 WHERE ds.drawing_spec_id=$id

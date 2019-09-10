@@ -13,6 +13,8 @@
 							<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>" readonly>
 							<label>Brand</label>
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
+							<label>Order Qty</label>
+							<input type="text" name="brand" value="<?= $res->order_qty ?>" class="form-control" readonly>
 							<label>Drawing</label>
 							<br/>
 							<?php $str = str_replace(".","",$res->image); ?>
