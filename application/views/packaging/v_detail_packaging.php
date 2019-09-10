@@ -44,9 +44,9 @@
 					         </div>
 					         <label>Packaging Remark</label>
 					         <?php if ($res->ds_status == null) { ?>
-					         	<input type="text" class="form-control" name="packaging_remark" value=" " autocomplete="off" required>
+					         	<input type="text" class="form-control" name="packaging_remark" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" name="packaging_remark" value="<?= $res->ds_remark ?>" autocomplete="off" required>
+					        	<input type="text" class="form-control" required name="packaging_remark" value="<?= $res->ds_remark ?>">
 					    	<?php } ?>
 								
 							
