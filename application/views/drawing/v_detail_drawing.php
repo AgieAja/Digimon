@@ -17,8 +17,8 @@
 							<input type="text" name="brand" value="<?= $res->brand_code ?>" class="form-control" readonly>
 							<label>Image</label>
 							<?php $rd_str= str_replace(".","",$res->item_images); ?>
-							<a href="#" data-toggle="modal" data-target="#rd_img<?= $rd_str ?>" style="text-decoration: none;">
-								<input type="text" name="" class="form-control" value="<?= $res->item_images ?>" readonly>
+							<a href="#" class="btn btn-success" data-toggle="modal" data-target="#rd_img<?= $rd_str ?>" style="text-decoration: none;">
+								<!-- <input type="text" name="" class="form-control" value="<?= $res->item_images ?>" readonly> -->Show Image 
 							</a>
 							<label>Drawing Status</label>
 							<select id="status"  name="status" class="form-control" onchange="status_(this);" required>
