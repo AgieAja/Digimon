@@ -50,9 +50,9 @@
 					         </div>
 					         <label>BOM Remark</label>
 					         <?php if ($res->pc_status == null) { ?>
-					         	<input type="text" class="form-control" name="bom_remark" value=" " autocomplete="off">
+					         	<input type="text" class="form-control" name="bom_remark" value=" " autocomplete="off" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" autocomplete="off">
+					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" autocomplete="off" required>
 					    	<?php } ?>
 								
 							

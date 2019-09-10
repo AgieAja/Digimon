@@ -37,13 +37,13 @@
 								<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>">
 					            <label class="h5">Image</label>
 					            <input type="file" name="drawing_img" id="imgInp" class="form-control">
-					            <div class="mt-2">
+					            <!-- <div class="mt-2">
                                     <img id="blah" class="img-thumbnail" src="#" alt="your image" width="200" height="200" />
-                                </div>
+                                </div> -->
 					         </div>
 
 							<label>Drawing Remark</label>
-								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" autocomplete="off">
+								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" autocomplete="off" required>
 							<br/>
 							<button type="submit" class="btn btn-primary">Save</button>
 							<a href="<?php echo base_url();?>Drawing"  class="btn btn-danger">
