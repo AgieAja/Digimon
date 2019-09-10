@@ -72,6 +72,24 @@
 		</div>		
 	</div>
 </div>
+<div id="ds_img<?= $ds_str ?>" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header modal-primary">
+        <h3 class="modal-title">Image Ref
+        </h3>
+        <button class="close" data-dismiss="modal" type="close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <embed src="<?= base_url() ?>uploads/<?= $res->inner_box_spec ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="1000px" />
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="inner_img<?= $inner_str ?>" class="modal fade " role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
