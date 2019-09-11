@@ -22,6 +22,8 @@ class M_pending extends CI_Model
         WHEN ra.approve_status = 0 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
         WHEN ra.approve_status = 3 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Approved'
         WHEN ra.approve_status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
+				WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-OK'
         WHEN ra.approve_status = 3 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-Pending'
         WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-OK'
         WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL THEN 'BOM-Pending'
