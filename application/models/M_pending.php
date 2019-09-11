@@ -24,16 +24,17 @@ class M_pending extends CI_Model
         WHEN ra.approve_status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
 				WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Pending'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-OK'
-        WHEN ra.approve_status = 3 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-Pending'
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-OK'
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL THEN 'BOM-Pending'
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL THEN 'BOM-OK'
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 2 AND b.status = 1 THEN 'BOM-Pending'
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 2 AND b.status = 2 THEN 'BOM-OK' ELSE 'Undefined' END 'pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL THEN 'Packaging-OK'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL THEN 'BOM-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL THEN 'BOM-OK'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 THEN 'BOM-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 THEN 'BOM-OK' ELSE 'Undefined' END 'pending'
         ,CASE WHEN ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
-        WHEN ra.approve_status = 3 AND ds.status IS NOT NULL AND p.status IS NULL AND b.status IS NULL THEN ds.remark
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status IS NOT NULL AND b.status IS NULL THEN p.remark
-        WHEN ra.approve_status = 3 AND ds.status = 2 AND p.status = 2 AND b.status IS NOT NULL THEN b.remark ELSE 'Undefined' END 'remark'
+        WHEN ra.approve_status = 3 AND rd.status IS NOT NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
+				WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NOT NULL AND p.status IS NULL AND b.status IS NULL THEN ds.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NOT NULL AND b.status IS NULL THEN p.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NOT NULL THEN b.remark ELSE 'Undefined' END 'remark'
         FROM request_details AS rd
         INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
         LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
@@ -44,8 +45,7 @@ class M_pending extends CI_Model
         LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
         LEFT JOIN users AS u ON u.id = rh.created_by
         LEFT JOIN users as us ON us.id = ra.approve_by
-        WHERE rh.deleted_at IS NULL AND (r.status IS NULL OR r.status = 1) ORDER BY rh.request_header_id DESC
-        ";
+        WHERE rh.deleted_at IS NULL AND (r.status IS NULL OR r.status = 1) ORDER BY rh.request_header_id DESC";
 
         return $this->db->query($query)->result();
 
