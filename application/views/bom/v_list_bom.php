@@ -9,15 +9,11 @@
                             <thead>
                                 <tr>
                                     <th>Request No</th>
-                                    <!-- <th>Customer Info No</th> -->
-                                    <!-- <th>Sakura Ref No</th> -->
+                                    <th>Customer Info No</th>
                                     <th>Customer Name</th>
-                                    <th>Customer PO No</th>
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Sales</th>
-                                    <th>Packaging Release</th>
-                                    <!-- <th>Order Qty</th> -->
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -26,12 +22,11 @@
                                 <?php foreach ($listBom as $row) { ?>
                                 <tr>
                                     <td><?= $row->request_no; ?></td>
+                                    <td><?= $row->customer_info_no; ?></td>
                                     <td><?= $row->name; ?></td>
-                                    <td><?= $row->po_number_customer; ?></td>
                                     <td><?= $row->user_name; ?></td>
                                     <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
                                     <td><?= $row->sales; ?></td>
-                                    <td><?= date('d-M-Y',strtotime($row->pc_created_at)) ?></td>
                                     <td>
                                     <?php if ($row->pc_status == null) {
                                         echo "New";

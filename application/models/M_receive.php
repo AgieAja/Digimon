@@ -14,7 +14,7 @@ class M_receive extends CI_Model
     public $deleted_by;
 
     public function join_table(){
-        $query = $this->db->query("SELECT rh.*,c.name,u.user_name as sales,us.user_name,bom.status as bom_status,bom.bom_id
+        $query = $this->db->query("SELECT rh.*,c.name,u.user_name as sales,us.user_name,bom.status as bom_status,bom.bom_id,rd.customer_info_no
                 FROM bill_of_materials as bom
                 LEFT JOIN packagings as pc ON bom.packaging_id=pc.packaging_id
                 LEFT JOIN drawing_specs as ds ON pc.drawing_spec_id=ds.drawing_spec_id

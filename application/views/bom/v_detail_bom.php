@@ -62,7 +62,7 @@
 							
 							<br/>
 							<button type="submit" class="btn btn-primary">Save</button>
-							<a href="<?php echo base_url();?>Packaging"  class="btn btn-danger">
+							<a href="<?php echo base_url();?>Bom"  class="btn btn-danger">
 								Cancel
 							</a>
 						</div>

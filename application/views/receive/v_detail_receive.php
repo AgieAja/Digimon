@@ -10,7 +10,7 @@
 							<label>Customer No Info</label>
 							<input type="text" class="form-control" name="cusomter_no_info" value="<?= $res->customer_info_no ?>" readonly>
 							<label>Sakura No Info</label>
-							<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>" readonly>
+							<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_ref_no ?>" readonly>
 							<label>Sakura No Version</label>
 							<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>" readonly>
 							<label>Brand</label>
@@ -21,7 +21,7 @@
 							<input type="text" name="brand" value="<?= $res->sap_filter_master ?>" class="form-control" readonly>
 							<br/>
 							<button type="submit" class="btn btn-success">Confirm</button>
-							<a href="<?php echo base_url();?>Packaging"  class="btn btn-danger">
+							<a href="<?php echo base_url();?>Receive"  class="btn btn-danger">
 								Cancel
 							</a>
 						</div>

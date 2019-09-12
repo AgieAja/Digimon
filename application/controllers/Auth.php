@@ -4,7 +4,7 @@ class Auth extends CI_controller
 {
     public function __construct(){
         parent::__construct();
-        $this->load->model('m_auth');
+        $this->load->model('M_auth');
     }
 
     function index(){
@@ -20,7 +20,7 @@ class Auth extends CI_controller
         
 
         
-        $queryUser = $this->m_auth->userLogin($user, $pass);
+        $queryUser = $this->M_auth->userLogin($user, $pass);
         
         $data_session = array(
                 'id' => $queryUser['id'],

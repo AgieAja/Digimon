@@ -10,12 +10,10 @@
                                 <tr>
                                     <th>Request No</th>
                                     <th>Customer Info No</th>
-                                    <!-- <th>Sakura Ref No</th> -->
                                     <th>Customer Name</th>
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Sales</th>
-                                    <!-- <th>Order Qty</th> -->
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
