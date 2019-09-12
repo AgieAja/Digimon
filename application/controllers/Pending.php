@@ -20,7 +20,7 @@ class pending extends CI_Controller
 
         $data['pending'] = $this->M_pending->join_table();
 
-        $this->load->view('V_home',$data);
+        $this->load->view('v_home',$data);
     }
 
     public function cetak()
