@@ -26,30 +26,30 @@ class M_request_detail extends CI_Model
     
     public function retrieveDashboard(){
         $query = "SELECT rh.request_no, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
-                    , CASE WHEN ra.approve_status IS NULL THEN 'New'
-	                    WHEN ra.approve_status = 0 THEN 'Reject'
-	                    WHEN ra.approve_status = 3 THEN 'Approved'
-                        WHEN ra.approve_status = 2 THEN 'Revisi' ELSE 'Undefined' END 'request_status'
-                    , CASE WHEN ds.status IS NULL THEN 'Not Yet'
-	                    WHEN ds.status = 1 THEN 'Pending'
-                        WHEN ds.status = 2 THEN 'Ok' ELSE 'Undefined' END 'drawing_spec_status'
-                    , CASE WHEN p.status IS NULL THEN 'Not Yet'
-                    	WHEN p.status = 1 THEN 'Pending'
-                        WHEN p.status = 2 THEN 'Ok' ELSE 'Undefined' END 'packaging_status'
-                    , CASE WHEN b.status IS NULL THEN 'Not Yet'
-                    	WHEN b.status = 1 THEN 'Pending'
-                        WHEN b.status = 2 THEN 'Ok' ELSE 'Undefined' END 'bom_status'
-                    FROM request_details AS rd 
-                    INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
-                    LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
-                    LEFT JOIN drawing_specs AS ds ON ds.request_detail_id = rd.request_detail_id
-                    LEFT JOIN packagings AS p ON p.drawing_spec_id = ds.drawing_spec_id
-                    LEFT JOIN bill_of_materials AS b ON b.packaging_id = p.packaging_id
-                    LEFT JOIN receives AS r ON r.bom_id = b.bom_id
-                    LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
-                    LEFT JOIN users AS u ON u.id = rh.created_by
-					LEFT JOIN users as us ON us.id = ra.approve_by
-                    WHERE rh.deleted_at IS NULL ORDER BY rh.request_header_id DESC";
+        , CASE WHEN ra.approve_status IS NULL THEN 'New'
+            WHEN ra.approve_status = 0 THEN 'Reject'
+            WHEN ra.approve_status = 3 THEN 'Approved'
+            WHEN ra.approve_status = 2 THEN 'Revisi' ELSE 'Undefined' END 'request_status'
+        , CASE WHEN ra.approve_status = 3 AND rd.status IS NULL THEN 'Not Yet'
+            WHEN ra.approve_status = 3 AND rd.status = 1 THEN 'Pending'
+            WHEN ra.approve_status = 3 AND rd.status = 2 THEN 'Ok' ELSE 'Undefined' END 'drawing_spec_status'
+        , CASE WHEN ra.approve_status = 3 AND ds.status IS NULL THEN 'Not Yet'
+            WHEN ra.approve_status = 3 AND ds.status = 1 THEN 'Pending'
+            WHEN ra.approve_status = 3 AND ds.status = 2 THEN 'Ok' ELSE 'Undefined' END 'packaging_status'
+        , CASE WHEN ra.approve_status = 3 AND p.status IS NULL THEN 'Not Yet'
+            WHEN ra.approve_status = 3 AND p.status = 1 THEN 'Pending'
+            WHEN ra.approve_status = 3 AND p.status = 2 THEN 'Ok' ELSE 'Undefined' END 'bom_status'
+        FROM request_details AS rd 
+        INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
+        LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
+        LEFT JOIN drawing_specs AS ds ON ds.request_detail_id = rd.request_detail_id
+        LEFT JOIN packagings AS p ON p.drawing_spec_id = ds.drawing_spec_id
+        LEFT JOIN bill_of_materials AS b ON b.packaging_id = p.packaging_id
+        LEFT JOIN receives AS r ON r.bom_id = b.bom_id
+        LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
+        LEFT JOIN users AS u ON u.id = rh.created_by
+        LEFT JOIN users as us ON us.id = ra.approve_by
+        WHERE rh.deleted_at IS NULL AND (b.status IS NULL OR b.status = 1) ORDER BY rh.request_header_id DESC";
         
         $sql = $this->db->query($query);
         return $sql->result();
