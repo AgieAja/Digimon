@@ -20,14 +20,14 @@ class M_pending extends CI_Model
 		  $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
         ,CASE WHEN ra.approve_status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
         WHEN ra.approve_status = 0 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
-        WHEN ra.approve_status = 3 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Approved'
+        WHEN ra.approve_status = 3 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
         WHEN ra.approve_status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
 				WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Drawing-Pending'
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-New'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Not Yet'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Pending'
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'BOM-New'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Not Yet'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN 'BOM-Pending'
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status IS NULL THEN 'Receive-New' 
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status IS NULL THEN 'Receive-Not Yet' 
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status = 1 THEN 'Receive-Pending' ELSE 'Undefined' END 'pending'
         ,CASE WHEN ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
         WHEN ra.approve_status = 3 AND rd.status IS NOT NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
