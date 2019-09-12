@@ -18,22 +18,28 @@ class M_pending extends CI_Model
 		// 	")->result();
 
 		  $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
-        ,CASE WHEN ra.approve_status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
-        WHEN ra.approve_status = 0 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
-        WHEN ra.approve_status = 3 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
-        WHEN ra.approve_status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
-				WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Drawing-Pending'
+        ,CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
+        WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
+        WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
+        WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
+		WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Drawing-Pending'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Not Yet'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Pending'
         WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Not Yet'
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN 'BOM-Pending'
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status IS NULL THEN 'Receive-Not Yet' 
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status = 1 THEN 'Receive-Pending' ELSE 'Undefined' END 'pending'
-        ,CASE WHEN ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
-        WHEN ra.approve_status = 3 AND rd.status IS NOT NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
-				WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NOT NULL AND p.status IS NULL AND b.status IS NULL THEN ds.remark
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NOT NULL AND b.status IS NULL THEN p.remark
-        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NOT NULL THEN b.remark ELSE 'Undefined' END 'remark'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL AND r.status IS NULL THEN 'Receive-Not Yet' 
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status = 1 THEN 'Receive-Pending' ELSE 'Undefined' END 'pending'
+        , CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+        WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+        WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
+        WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+		WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN rd.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ds.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL AND r.status IS NULL THEN p.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN b.remark ELSE 'Undefined' END 'remark'
         FROM request_details AS rd
         INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
         LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
@@ -55,41 +61,41 @@ class M_pending extends CI_Model
     $post = $this->input->post();
 
     $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
-		,CASE WHEN ra.approve_status IS NULL AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
-		WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
-		WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
-		WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
-WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Drawing-Pending'
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Not Yet'
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Pending'
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Not Yet'
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN 'BOM-Pending'
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status IS NULL THEN 'Receive-Not Yet' 
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status = 1 THEN 'Receive-Pending' ELSE 'Undefined' END 'pending'
-		, CASE WHEN ra.approve_status IS NULL AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
-		WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
-		WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
-		WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
-WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN rd.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ds.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ds.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN p.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN p.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status IS NULL THEN b.remark
-		WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 2 AND r.status = 1 THEN b.remark ELSE 'Undefined' END 'remark'
-		FROM request_details AS rd
-		INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
-		LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
-		LEFT JOIN drawing_specs AS ds ON ds.request_detail_id = rd.request_detail_id
-		LEFT JOIN packagings AS p ON p.drawing_spec_id = ds.drawing_spec_id
-		LEFT JOIN bill_of_materials AS b ON b.packaging_id = p.packaging_id
-		LEFT JOIN receives AS r ON r.bom_id = b.bom_id
-		LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
-		LEFT JOIN users AS u ON u.id = rh.created_by
-		LEFT JOIN users as us ON us.id = ra.approve_by
-		WHERE rh.deleted_at IS NULL AND (r.status IS NULL OR r.status = 1) 
-		AND rh.request_date BETWEEN '$post[tgl_1]' AND '$post[tgl_2]'
-		ORDER BY rh.request_header_id DESC";
+        ,CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
+        WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
+        WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
+        WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Revisi'
+		WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Drawing-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Not Yet'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'Packaging-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Not Yet'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL AND r.status IS NULL THEN 'BOM-Pending'
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL AND r.status IS NULL THEN 'Receive-Not Yet' 
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status = 1 THEN 'Receive-Pending' ELSE 'Undefined' END 'pending'
+        , CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+        WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+        WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN rd.remark
+        WHEN ra.approve_status = 2 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN ra.approve_note
+		WHEN ra.approve_status = 3 AND rd.status = 1 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN rd.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 1 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ds.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status IS NULL AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 1 AND b.status IS NULL AND r.status IS NULL THEN p.remark
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status IS NULL AND r.status IS NULL THEN ''
+        WHEN ra.approve_status = 3 AND rd.status = 2 AND ds.status = 2 AND p.status = 2 AND b.status = 1 AND r.status IS NULL THEN b.remark ELSE 'Undefined' END 'remark'
+        FROM request_details AS rd
+        INNER JOIN request_headers AS rh ON rh.request_header_id = rd.request_header_id
+        LEFT JOIN request_approves AS ra ON ra.request_header_id = rh.request_header_id
+        LEFT JOIN drawing_specs AS ds ON ds.request_detail_id = rd.request_detail_id
+        LEFT JOIN packagings AS p ON p.drawing_spec_id = ds.drawing_spec_id
+        LEFT JOIN bill_of_materials AS b ON b.packaging_id = p.packaging_id
+        LEFT JOIN receives AS r ON r.bom_id = b.bom_id
+        LEFT JOIN customers AS c ON c.customer_code = rh.customer_code
+        LEFT JOIN users AS u ON u.id = rh.created_by
+        LEFT JOIN users as us ON us.id = ra.approve_by
+        WHERE rh.deleted_at IS NULL AND (r.status IS NULL OR r.status = 1) 
+        AND rh.request_date BETWEEN '$post[tgl_1]' AND '$post[tgl_2]'
+        ORDER BY rh.request_header_id DESC";
 
         return $this->db->query($query)->result();
 
