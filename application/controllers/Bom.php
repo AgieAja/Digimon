@@ -74,13 +74,13 @@ class Bom extends CI_Controller
             <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
             <strong>Warning!</strong> Failed saved.
             </div>");
-            redirect('BOM');
+            redirect('Bom');
         }else{
             $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
             <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
             <strong>Information!</strong> Data has been saved. 
             </div>");
-            redirect('BOM');
+            redirect('Bom');
         }
     }
 
