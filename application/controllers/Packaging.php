@@ -128,7 +128,7 @@ class Packaging extends CI_Controller
         move_uploaded_file($tmp_outter, 'uploads/'.str_replace(" ","_",$outter_box));
 
 
-        $packaging = $this->m_packaging;
+        $packaging = $this->M_packaging;
         $res = $packaging->updaterow();
 
         if ($res){
