@@ -56,6 +56,8 @@ class M_receive extends CI_Model
         $this->status = "confirm";
         $this->created_at = date('Y-m-d');
         $this->created_by = $this->session->userdata("id");
+        $this->updated_at = date('Y-m-d');
+        $this->updated_by = $this->session->userdata("id");
         $this->db->insert($this->_table,$this);
     }
 
