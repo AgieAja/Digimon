@@ -1,4 +1,4 @@
-<form action="<?= base_url() ?>Request/update" method="post">
+<form action="<?= base_url() ?>Request/update" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-lg-12 grid-margin">
             <div class="card">
@@ -96,7 +96,7 @@
                                     </select>
                                 </td>
                                 <td><input class="form-control" type="number" name="order_qty[]" value="<?= $row->order_qty ?>"></td>
-                                <td><input class="form-control" type="file">
+                                <td><input class="form-control" type="file" name="image_ref[]">
                                     <?php $strImg = str_replace(".", "", $row->item_images) ?>
                                     <a href="#" data-toggle="modal" data-target="#itemImages<?= $strImg ?>"><?= $row->item_images ?></a>
                                 </td>

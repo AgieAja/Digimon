@@ -137,6 +137,32 @@ class Request extends CI_Controller
     }
 
     public function update(){
+
+        $a = count($this->input->post('customer_no_info'));
+        
+        for ($i=0; $i < $a ; $i++) { 
+            
+            // $config['upload_path']          = './gambar/';
+            // $config['allowed_types']        = 'gif|jpg|png';
+            // $config['max_size']             = '0';
+
+            // $this->load->library('upload');
+            // $this->upload->initialize($config);
+            // $image = 'image_ref'[$i];
+            // $this->upload->do_upload($image);
+            
+            // $image_data = $this->upload->data();
+            // $file_path = $image_data[full_path];
+
+            $namafile = $_FILES['image_ref']['name'][$i];
+            $tmp = $_FILES['image_ref']['tmp_name'][$i];
+            $type = $_FILES['image_ref']['type'][$i];
+            $error = $_FILES['image_ref']['error'][$i];
+            $size = $_FILES['image_ref']['size'][$i];
+
+            move_uploaded_file($tmp, 'uploads/'.$namafile);
+        }
+        
         $request_header = $this->M_request_header;
         $request_detail = $this->M_request_detail;
         $request_approve = $this->M_approve;
