@@ -33,16 +33,6 @@ echo $this->session->flashdata("msg");
                                     </td>
                                 </tr>
                                 <?php } ?>
-                                <!-- <tr>
-                                    <td>RQM000001</td>
-                                    <td>Allied (M) Filtration Solution Nc</td>
-                                    <td>PO No: A-20190801-125</td>
-                                    <td>Nurahman_1</td>
-                                    <td>15 August 2019</td>
-                                    <td>
-                                        <a href="<?php echo base_url();?>index.php/approves/detail">Detail</a>
-                                    </td>
-                                </tr> -->
                             </tbody>
                         </table>
                     </div>

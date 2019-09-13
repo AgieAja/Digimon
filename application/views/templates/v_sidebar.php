@@ -1,5 +1,4 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
 	<ul class="nav">
 		<li class="nav-item">
 		<a class="nav-link" href="<?php echo base_url();?>dashboard">
@@ -7,7 +6,6 @@
 			<span class="menu-title">Request Monitoring</span>
 		</a>
 		</li>
-
 		<?php if($this->session->userdata('access_level')==1){ ?>
 		<li class="nav-item">
 			<a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="ui-basic">
@@ -240,7 +238,6 @@
 		<?php } ?>
 	</ul>
 </nav>
-
 <div id="logoutModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">

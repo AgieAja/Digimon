@@ -27,6 +27,7 @@ class Auth extends CI_controller
                 'user_name' => $user,
                 'name' => $queryUser['name'],
                 'access_level' => $queryUser['access_level'],
+                'zone_code' => $queryUser['zone_code'],
                 'status' => "login"
                 );
  

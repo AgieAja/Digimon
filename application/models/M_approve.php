@@ -13,6 +13,10 @@ class M_approve extends CI_Model
 
     public function join_table(){
 
+        $zone_sales = $this->session->userdata('zone_code');
+
+        // var_dump($zone_sales);
+        // exit;
         $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status
                 FROM request_headers as rh
                 LEFT JOIN customers as c
@@ -21,7 +25,7 @@ class M_approve extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
-                WHERE ra.approve_status =1
+                WHERE ra.approve_status =1 AND c.zone_code = '$zone_sales'
             ");
         return  $query->result();
     }

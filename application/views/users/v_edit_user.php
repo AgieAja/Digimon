@@ -65,7 +65,7 @@
 							<div id="zone_code">
 								<label>Zone Code (Sales Only)</label>
 								<select name="zone_code" class="form-control">
-								<option value="0" selected disabled>--Choose--</option>
+								<option value="<?= $zone_code ?>" selected disabled><?= $zone_code ?></option>
 									<?php foreach($listZone as $row){ ?>
 									<option><?= $row['zone_code']; ?></option>
 									<?php } ?>
