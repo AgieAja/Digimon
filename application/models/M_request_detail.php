@@ -106,8 +106,12 @@ class M_request_detail extends CI_Model
 		        $data['warehouse_code'] = $post["warehouse"][$i];
 		        $data['manufacture_code'] = $post["manufacture"][$i];
 		        $data['order_qty'] = $post["order_qty"][$i];
-		        $data['item_images'] = $_FILES['image_ref']['name'][$i];
-
+                if ($_FILES['image_ref']['name'][$i]== '') {
+                    $data['item_images'] = $post['image_ref'][$i];
+                }else{
+                    $data['item_images'] = $_FILES['image_ref']['name'][$i];
+                }
+		          
 		        $this->db->where('request_detail_id', $request_id);
         		$this->db->update("request_details", $data);
 		        

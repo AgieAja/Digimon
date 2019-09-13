@@ -97,6 +97,7 @@
                                 </td>
                                 <td><input class="form-control" type="number" name="order_qty[]" value="<?= $row->order_qty ?>"></td>
                                 <td><input class="form-control" type="file" name="image_ref[]">
+                                    <input type="hidden" class="form-control" name="image_ref[]" value="<?= $row->item_images ?>">
                                     <?php $strImg = str_replace(".", "", $row->item_images) ?>
                                     <a href="#" data-toggle="modal" data-target="#itemImages<?= $strImg ?>"><?= $row->item_images ?></a>
                                 </td>
