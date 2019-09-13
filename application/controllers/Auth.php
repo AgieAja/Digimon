@@ -94,7 +94,7 @@ class Auth extends CI_controller
                     'Request', 'approves','Drawing','Packaging','Bom','Receive'
                 ],
                 'Report' => ['Pending','Finish'],
-                'Acess' =>[1],
+                'Access' => [1],
 
             ];
             

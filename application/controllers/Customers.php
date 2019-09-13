@@ -86,6 +86,7 @@ class customers extends CI_Controller
         $data['address'] = $res->address;
         $data['email'] = $res->email;
         $data['phone_number'] = $res->phone_number;
+        $data['zone_code'] = $res->zone_code;
         $data['listZone'] = $this->m_customer->retrieveZone();
 
         $this->load->view('v_home', $data);

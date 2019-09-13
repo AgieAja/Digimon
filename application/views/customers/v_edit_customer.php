@@ -17,6 +17,14 @@
                             <input type="email" name="email" value="<?= $email; ?>" class="form-control" autocomplete="off" required>
                             <label>Phone Number</label>
                             <input type="text" name="phone_number" value="<?= $phone_number; ?>" class="form-control" autocomplete="off" required>
+                            <label>Zone Code</label>
+                            <label>Zone Code</label>
+                                <select name="zone_code" class="form-control">
+                                <option value="<?= $zone_code; ?>"><?= $zone_code; ?></option>
+                                    <?php foreach($listZone as $row){ ?>
+                                    <option><?= $row['zone_code']; ?></option>
+                                    <?php } ?>
+                                </select>
                             <br>
                             <button class="btn btn-info" type="submit">Save</button>
                             <a href="<?= base_url(); ?>index.php/customers" class="btn btn-danger">Cancel</a>

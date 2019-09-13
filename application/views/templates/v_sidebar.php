@@ -27,7 +27,7 @@
 		</div>
 		</li>
 		<?php } ?>
-		<?php $sessionAccess = $this->session->userdata('access'); if ($sessionAccess['Masters'][0] === 1) { ?>
+		<?php $sessionAccess = $this->session->userdata('access'); if ($sessionAccess['Access'][0] === 1) { ?>
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false" aria-controls="ui-basic">
 			<i class="menu-icon mdi mdi-content-copy"></i>
