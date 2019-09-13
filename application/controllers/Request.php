@@ -162,7 +162,7 @@ class Request extends CI_Controller
 
             move_uploaded_file($tmp, 'uploads/'.$namafile);
         }
-        
+
         $request_header = $this->M_request_header;
         $request_detail = $this->M_request_detail;
         $request_approve = $this->M_approve;
