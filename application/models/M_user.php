@@ -77,7 +77,7 @@ class M_user extends CI_Model{
 		$data['phone_number'] = $post["phone_number"];
 		$data['address'] = $post["address"];
 		$data['access_level'] = $post["access_level"];
-		$data['zone_code'] = $post["zone_code"];
+		// $data['zone_code'] = $post["zone_code"];
 		$data['deleted_at'] = date('Y-m-d');
 		$data['deleted_by'] = $this->session->userdata('id');
 		

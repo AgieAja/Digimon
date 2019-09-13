@@ -42,7 +42,8 @@ class Auth extends CI_controller
                     [
                         'Request','Receive'
                     ],
-                'Report' => [1]
+                'Report' => ['Pending','Finish'],
+                'Access'=>[1]
             ];
 
             $arrayAccessSales = [
@@ -51,25 +52,29 @@ class Auth extends CI_controller
                 [
                     'Approves'
                 ],
-                'Report' => [0]
+                'Report' => [0],
+                'Access'=>[0],
             ];
 
             $arrayAccessSalesHead = [
                 'Masters' => [0],
                 'Transaction' => [0],
-                'Report' => [1]
+                'Report' => ['Pending','Finish'],
+                'Access'=>[0],
             ];
 
             $arrayAccessEngDrawing = [
                 'Masters' => [0],
                 'Transaction' => ['Drawing'],
-                'Report' => [0]
+                'Report' => [0],
+                'Access'=>[0],
             ];
 
             $arrayAccessEngPackaging = [
                 'Masters' => [0],
                 'Transaction' => ['Packaging'],
-                'Report' => [0]
+                'Report' => [0],
+                'Access'=>[0],
             ];
 
             $arrayAccessEngBom = [
@@ -77,13 +82,14 @@ class Auth extends CI_controller
                     'Manufactures', 'Brands', 'Warehouses'
                 ],
                 'Transaction' => ['Bom'],
-                'Report' => [0]
+                'Report' => ['Pending','Finish']
             ];
 
             $arrayAccessEngHead = [
                 'Masters' => [0],
                 'Transaction' => [0],
-                'Report' => [1]
+                'Report' => ['Pending','Finish'],
+                'Access' =>[0]
             ];
 
             $arrayAccessSistemAdmin = [
