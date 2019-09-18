@@ -80,9 +80,11 @@ echo $this->session->flashdata("msg");
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#datatable").Datatable();
-    })
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css">
+<script src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#datatable").DataTable();
+    });
 </script>

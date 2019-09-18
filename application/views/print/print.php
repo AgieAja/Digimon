@@ -71,6 +71,29 @@
                             
                         </tbody>
                     </table>
+                    <p></p>
+                    <h5>Print By</h5>
+                    <p style="margin-top: 30px">&nbsp;</p>
+                    <p><u><strong><?=  $this->session->userdata('name'); ?></strong></u></p>
+                    <p>
+                        <?php if ($this->session->userdata('access_level') ==1){
+                            echo "Admin Sales";
+                        }elseif ($this->session->userdata('access_level') ==2){
+                            echo "Sales";
+                        }elseif ($this->session->userdata('access_level') ==3){
+                            echo "Head Sales";
+                        }elseif ($this->session->userdata('access_level') ==4){
+                            echo "Enginnering Drawing";
+                        }elseif ($this->session->userdata('access_level') ==5){
+                            echo "Enginnering Packaging";
+                        }elseif ($this->session->userdata('access_level') ==6){
+                            echo "Enginnering BOM";
+                        }elseif ($this->session->userdata('access_level') ==7){
+                            echo "Enginnering Head";
+                        }elseif ($this->session->userdata('access_level') ==8){
+                            echo "Sistem Admin";
+                        } ?>    
+                    </p>
                     <br/>
                     <!-- <button type="button" class="btn btn-success" id="tambahdata">Add</button> -->
                     <br>

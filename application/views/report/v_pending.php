@@ -46,7 +46,7 @@
 				<th>Request Date</th>
 				<th>Customer Name</th>
 				<th>Customer No Info</th>
-				<th>Sakura Version No</th>
+				<th>Sakura No Reference</th>
 				<th>Brand</th>
 				<th>Manufacture</th>
 				<th>Warehouse</th>
@@ -61,7 +61,7 @@
 	                <td><?= date('d/m/Y',strtotime($row->request_date)); ?></td>
 	                <td><?= $row->customer_name; ?></td>
 	                <td><?= $row->customer_info_no; ?></td>
-	                <td><?= $row->sakura_version_no; ?></td>
+	                <td><?= $row->sakura_ref_no; ?></td>
 	                <td><?= $row->brand_code; ?></td>
 	                <td><?= $row->manufacture_code; ?></td>
 	                <td><?= $row->warehouse_code; ?></td>
@@ -71,5 +71,28 @@
 			<?php } ?>
 		</tbody>
 	</table>
+	<p style="margin-top: 20px;"></p>
+	<p>Print By</p>
+    <p style="margin-top: 30px">&nbsp;</p>
+    <p style="font-size: 13px;"><u><strong><?=  $this->session->userdata('name'); ?></strong></u></p>
+    <p style="font-size: 13px;">
+        <?php if ($this->session->userdata('access_level') ==1){
+            echo "Admin Sales";
+        }elseif ($this->session->userdata('access_level') ==2){
+            echo "Sales";
+        }elseif ($this->session->userdata('access_level') ==3){
+            echo "Head Sales";
+        }elseif ($this->session->userdata('access_level') ==4){
+            echo "Enginnering Drawing";
+        }elseif ($this->session->userdata('access_level') ==5){
+            echo "Enginnering Packaging";
+        }elseif ($this->session->userdata('access_level') ==6){
+            echo "Enginnering BOM";
+        }elseif ($this->session->userdata('access_level') ==7){
+            echo "Enginnering Head";
+        }elseif ($this->session->userdata('access_level') ==8){
+            echo "Sistem Admin";
+        } ?>    
+    </p>
 </body>
 </html>

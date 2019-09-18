@@ -54,9 +54,9 @@
 					         </div>
 					         <label>BOM Remark</label>
 					         <?php if ($res->pc_status == null) { ?>
-					         	<input type="text" class="form-control" name="bom_remark" value=" " autocomplete="off" required>
+					         	<input type="text" class="form-control" name="bom_remark" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" autocomplete="off" required>
+					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" required>
 					    	<?php } ?>
 								
 							
@@ -81,7 +81,7 @@
         <button class="close" data-dismiss="modal" type="close">&times;</button>
       </div>
       <div class="modal-body">
-        <embed src="<?= base_url() ?>uploads/<?= $res->inner_box_spec ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="1000px" />
+        <embed src="<?= base_url() ?>uploads/<?= $res->ds_img ?>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="1000px" />
       </div>
       <div class="modal-footer">
         <!-- <a href="<?php echo base_url();?>auth/logout" class="btn btn-success">Logout</a> -->
@@ -118,7 +118,7 @@
       </div>
       <div class="modal-body">
         <object
-		  data="<?= base_url() ?>uploads/<?= $res->inner_box_spec ?>"
+		  data="<?= base_url() ?>uploads/<?= $res->outter_box_spec ?>"
 		  type="application/pdf"
 		  width="100%"
 		  height="1000px">

@@ -20,10 +20,10 @@
                             <input type="text" name="phone_number" class="form-control" required autocomplete="off"> 
                             <div>
 								<label>Zone Code</label>
-								<select name="zone_code" class="form-control">
-								<option value="0" selected disabled>--Choose--</option>
+								<select name="zone_code" class="form-control" required>
+								<option value="" selected disabled>--Choose--</option>
 									<?php foreach($listZone as $row){ ?>
-									<option><?= $row['zone_code']; ?></option>
+									<option><?= $row['zone_code']; ?>-<?= $row['zone_name']; ?></option>
 									<?php } ?>
 								</select>
 							</div> 

@@ -19,8 +19,10 @@
 							<input type="text" name="brand" value="<?= $res->movex_filter_master ?>" class="form-control" readonly>
 							<label>Sap Filter Master</label>
 							<input type="text" name="brand" value="<?= $res->sap_filter_master ?>" class="form-control" readonly>
+							<label>Confirm</label>
+							<input type="checkbox" required>
 							<br/>
-							<button type="submit" class="btn btn-success">Confirm</button>
+							<button type="submit" class="btn btn-success">Save</button>
 							<a href="<?php echo base_url();?>Receive"  class="btn btn-danger">
 								Cancel
 							</a>

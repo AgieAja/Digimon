@@ -18,7 +18,7 @@ class M_user extends CI_Model{
 	public $deleted_by;
 
 	public function retrieveuser(){
-		$query = $this->db->query('SELECT id,user_name,name,address,email FROM users where deleted_at IS NULL order by id');
+		$query = $this->db->query('SELECT id,user_name,name,address,email,access_level FROM users where deleted_at IS NULL order by id');
 		return $query->result();
 	}
 

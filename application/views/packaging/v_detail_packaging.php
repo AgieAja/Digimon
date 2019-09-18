@@ -38,15 +38,15 @@
 								<!-- <label>Image</label>
 								<input type="file" name="pack_img" class="form-control"> -->
 								<label>Inner BOX <span class="text-danger">(Pdf)</span></label>
-								<input type="file" name="inner_box" class="form-control" autocomplete="off">
+								<input type="file" name="inner_box" class="form-control" id="pdf" accept="application/pdf">
 					            <label>Outter BOX <span class="text-danger">(Pdf)</span></label>
-					            <input type="file" name="outter_box" value="" class="form-control" autocomplete="off">
+					            <input type="file" name="outter_box" value="" class="form-control" id="pdf" accept="application/pdf">
 					         </div>
 					         <label>Packaging Remark</label>
 					         <?php if ($res->ds_status == null) { ?>
 					         	<input type="text" class="form-control" name="packaging_remark" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" required name="packaging_remark" value="<?= $res->ds_remark ?>">
+					        	<input type="text" class="form-control" name="packaging_remark" value="<?= $res->ds_remark ?>" required>
 					    	<?php } ?>
 								
 							

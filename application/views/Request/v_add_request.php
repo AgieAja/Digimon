@@ -26,7 +26,7 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Po No Customer</label></div>
-                        <div class="col-lg-2"><input class="form-control" type="text" name="customer_po_no" autocomplete="off" placeholder="Enter PO No..." required></div>
+                        <div class="col-lg-2"><input class="form-control" type="text" name="customer_po_no"  placeholder="Enter PO No..." required autocomplete="off"></div>
                     </div>
                 </div>
             </div>
@@ -47,14 +47,14 @@
                                 <th>Warehouse</th>
                                 <th>Brand</th>
                                 <th>Order Qty</th>
-                                <th>Image Ref</th>
+                                <th>Image Ref (<span class="text-danger">Image Only</span>)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 	                        <tbody id="tambahform">
 	                            <tr id="item">
-                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value=""></td>
-                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value=""></td>
+                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>
+                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>
                                 <td>
                                     <select class="form-control name_list" name="manufacture[]">
                                         <option value="" selected disabled>Choose</option>
@@ -80,7 +80,7 @@
                                     </select>
                                 </td>
                                 <td><input class="form-control name_list" type="number" name="order_qty[]" value=""></td>
-                                <td><input class="form-control name_list" type="file" name="image_ref[]"></td>
+                                <td><input class="form-control name_list" type="file" name="image_ref[]" id="image_ref" accept="image/gif, image/jpeg"></td>
                                 <td><button class="btn btn-danger" id="remove-form">-</button></td>
                             </tr>
                             <tr id="items"></tr>
@@ -113,8 +113,8 @@ $(document).ready(function(){
   $('#tambahdata').click(function(){  
        i++;  
        $('#tambahform').append('<tr id="row'+i+'">'
-       	+'<td><input name="customer_no_info[]" class="form-control name_list" type="text" value=""></td>'
-       	+'<td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value=""></td>'
+       	+'<td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>'
+       	+'<td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>'
        	+'<td>'
             +'<select class="form-control name_list" name="manufacture[]">'
                 +'<option value="" selected disabled>Choose</option>'

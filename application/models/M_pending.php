@@ -17,7 +17,7 @@ class M_pending extends CI_Model
 		// 		WHERE rd.status IS Null OR ds.status IS Null OR p.status IS Null OR b.status IS Null 
 		// 	")->result();
 
-		  $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
+		  $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by,rd.sakura_ref_no
         ,CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
         WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
         WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'
@@ -60,7 +60,7 @@ class M_pending extends CI_Model
 
     $post = $this->input->post();
 
-    $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
+    $query = "SELECT rh.request_no, rh.request_date,ds.sakura_version_no, rd.brand_code,rd.warehouse_code, rd.manufacture_code, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by,rd.sakura_ref_no
         ,CASE WHEN ra.approve_status = 1 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-New'
         WHEN ra.approve_status = 0 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Request-Reject'
         WHEN ra.approve_status = 3 AND rd.status IS NULL AND ds.status IS NULL AND p.status IS NULL AND b.status IS NULL THEN 'Drawing-Not Yet'

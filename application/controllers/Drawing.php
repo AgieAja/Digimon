@@ -48,11 +48,24 @@ class Drawing extends CI_Controller
     {   
         $config['upload_path']          = './uploads/';
         // $config['allowed_types']        = 'gif|jpg|png';
-        $config['allowed_types']        = 'application/pdf|pdf|application/octet-stream|csv';
+        $config['allowed_types']        = 'pdf';
         $config['max_size']             = '0';
+
+        $type = $_FILES['drawing_img']['type'];
+
+        $allowed = array("application/pdf");
+            if(!in_array($type, $allowed)) { ?>
+              <script type="text/javascript">
+                  alert('Pdf Only !');
+                  window.history.back();
+              </script>
+            <?php exit(); }
 
         $this->load->library('upload');
         $this->upload->initialize($config);
+        if (condition) {
+            # code...
+        }
         $this->upload->do_upload('drawing_img');
         $image_data = $this->upload->data();
 

@@ -60,7 +60,17 @@ class Request extends CI_Controller
             $error = $_FILES['image_ref']['error'][$i];
             $size = $_FILES['image_ref']['size'][$i];
 
-            move_uploaded_file($tmp, 'uploads/'.$namafile);
+            $allowed = array("image/jpeg","image/png");
+            if(!in_array($type, $allowed)) { ?>
+              <script type="text/javascript">
+                  alert('Image Only !');
+                  window.history.back();
+              </script>
+            <?php exit(); }else{
+                 move_uploaded_file($tmp, 'uploads/'.$namafile);
+            }
+
+           
         }
 
         $request_header = $this->M_request_header;

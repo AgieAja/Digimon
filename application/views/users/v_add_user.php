@@ -35,7 +35,7 @@
 								<select name="zone_code" class="form-control">
 								<option value="0" selected disabled>--Choose--</option>
 									<?php foreach($listZone as $row){ ?>
-									<option><?= $row['zone_code']; ?></option>
+									<option><?= $row['zone_code']; ?>-<?= $row['zone_name'] ?></option>
 									<?php } ?>
 								</select>
 							</div>

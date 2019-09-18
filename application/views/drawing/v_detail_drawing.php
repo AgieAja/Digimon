@@ -38,14 +38,14 @@
 								<label>Sakura Version No</label>
 								<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>">
 					            <label>Drawing Design <span class="text-danger">(Pdf)</span></label>
-					            <input type="file" name="drawing_img" id="imgInp" class="form-control">
+					            <input type="file" name="drawing_img" id="pdf" accept="application/pdf" class="form-control">
 					            <!-- <div class="mt-2">
                                     <img id="blah" class="img-thumbnail" src="#" alt="your image" width="200" height="200" />
                                 </div> -->
 					         </div>
 
 							<label>Drawing Remark</label>
-								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" autocomplete="off" required>
+								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" required>
 							<br/>
 							<button type="submit" class="btn btn-primary">Save</button>
 							<a href="<?php echo base_url();?>Drawing"  class="btn btn-danger">

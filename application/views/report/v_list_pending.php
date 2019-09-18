@@ -14,14 +14,14 @@
                         </div>
                     </div>
                     <div class="panel-body table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="datatable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>Request No</th>
                                     <th>Request Date</th>
                                     <th>Customer Name</th>
                                     <th>Customer Info No</th>
-                                    <th>Sakura Version No</th>
+                                    <th>Sakura No Reference</th>
                                     <th>Brand</th>
                                     <th>MAnufacture</th>
                                     <th>Warehouse</th>
@@ -36,7 +36,7 @@
                                     <td><?= date('d-M-Y',strtotime($row->request_date)); ?></td>
                                     <td><?= $row->customer_name; ?></td>
                                     <td><?= $row->customer_info_no; ?></td>
-                                    <td><?= $row->sakura_version_no; ?></td>
+                                    <td><?= $row->sakura_ref_no; ?></td>
                                     <td><?= $row->brand_code; ?></td>
                                     <td><?= $row->manufacture_code; ?></td>
                                     <td><?= $row->warehouse_code; ?></td>
@@ -52,3 +52,11 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.css">
+<script src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#datatable").DataTable();
+    });
+</script>

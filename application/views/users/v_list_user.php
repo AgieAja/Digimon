@@ -21,6 +21,7 @@
 									<th>Name</th>
 									<th>Address</th>
 									<th>Email</th>
+									<th>Level</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -31,6 +32,25 @@
 									<td><?php echo $row->name;?></td>
 									<td><?php echo $row->address;?></td>
 									<td><?php echo $row->email;?></td>
+									<td>
+									<?php if ($row->access_level ==1){
+										echo "Admin Sales";
+									}elseif ($row->access_level ==2){
+										echo "Sales";
+									}elseif ($row->access_level ==3){
+										echo "Head Sales";
+									}elseif ($row->access_level ==4){
+										echo "Enginnering Drawing";
+									}elseif ($row->access_level ==5){
+										echo "Enginnering Packaging";
+									}elseif ($row->access_level ==6){
+										echo "Enginnering BOM";
+									}elseif ($row->access_level ==7){
+										echo "Enginnering Head";
+									}elseif ($row->access_level ==8){
+										echo "Sistem Admin";
+									} ?>	
+									</td>
 									<td>
 										<a href="<?php echo base_url();?>users/edit/<?php echo $row->id;?>">
 											Edit
