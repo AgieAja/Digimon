@@ -77,7 +77,8 @@ class Packaging extends CI_Controller
         $error_outter = $_FILES['outter_box']['error'];
         $size_outter = $_FILES['outter_box']['size'];
 
-        $allowed = array("application/pdf");
+        if ($inner_box || $outter_box) {
+             $allowed = array("application/pdf");
             if(!in_array($type_inner, $allowed)) { ?>
               <script type="text/javascript">
                   alert('Pdf Only !');
@@ -89,6 +90,8 @@ class Packaging extends CI_Controller
                   window.history.back();
               </script>
             <?php exit(); }
+        }
+      
 
         move_uploaded_file($tmp_inner, 'uploads/'.$inner_box);
         move_uploaded_file($tmp_outter, 'uploads/'.$outter_box);

@@ -53,19 +53,21 @@ class Drawing extends CI_Controller
 
         $type = $_FILES['drawing_img']['type'];
 
-        $allowed = array("application/pdf");
+        if ($type = $_FILES['drawing_img']['type']) {
+            
+            $allowed = array("application/pdf");
             if(!in_array($type, $allowed)) { ?>
               <script type="text/javascript">
                   alert('Pdf Only !');
                   window.history.back();
               </script>
             <?php exit(); }
+        }
+        
 
         $this->load->library('upload');
         $this->upload->initialize($config);
-        if (condition) {
-            # code...
-        }
+       
         $this->upload->do_upload('drawing_img');
         $image_data = $this->upload->data();
 
