@@ -46,7 +46,7 @@
 	            <th>Request Date</th>
 	            <th>Customer Name</th>
 	            <th>Customer Info No</th>
-	            <th>Sakura No Reference</th>
+	            <th>Sakura Version No</th>
 	            <th>Brand</th>
 	            <th>MAnufacture</th>
 	            <th>Warehouse</th>
@@ -62,7 +62,7 @@
                 <td><?= date('d-M-Y',strtotime($row->request_date)); ?></td>
                 <td><?= $row->name; ?></td>
                 <td><?= $row->customer_info_no; ?></td>
-                <td><?= $row->sakura_ref_no; ?></td>
+                <td><?= $row->sakura_version_no; ?></td>
                 <td><?= $row->brand_code; ?></td>
                 <td><?= $row->manufacture_code; ?></td>
                 <td><?= $row->warehouse_code; ?></td>
