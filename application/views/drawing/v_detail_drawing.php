@@ -36,9 +36,9 @@
 							</select>
 							<div id="drawing">
 								<label>Sakura Version No</label>
-								<input type="text" class="form-control" name="sakura_version_no" value="<?= $res->sakura_version_no ?>">
+								<input type="text" class="form-control" id="sakura_version_no" name="sakura_version_no" value="<?= $res->sakura_version_no ?>">
 					            <label>Drawing Design <span class="text-danger">(Pdf)</span></label>
-					            <input type="file" name="drawing_img" id="pdf" accept="application/pdf" class="form-control">
+					            <input type="file" id="drawing_img" name="drawing_img" id="pdf" accept="application/pdf" class="form-control">
 					            <!-- <div class="mt-2">
                                     <img id="blah" class="img-thumbnail" src="#" alt="your image" width="200" height="200" />
                                 </div> -->
@@ -86,10 +86,14 @@
         var val=$("#status").val();
         if(val==1){
            $("#drawing").show();
+           $("#sakura_version_no").attr('required','');
+           $("#drawing_img").attr('required','');
         }else{
             $("#drawing").hide();
         }
     }
+
+
 
 </script>
 <script type="text/javascript">

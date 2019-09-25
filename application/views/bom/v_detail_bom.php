@@ -48,9 +48,9 @@
 							</select>
 							<div id="drawing">
 								<label>Movex Filter Master</label>
-								<input type="text" name="movex_filter" value="" class="form-control">
+								<input type="text" id="movex_filter" name="movex_filter" value="" class="form-control">
 								<label>SAP Filter Master</label>
-								<input type="text" name="sap_filter" value="" class="form-control">
+								<input type="text" id="sap_filter" name="sap_filter" value="" class="form-control">
 					         </div>
 					         <label>BOM Remark</label>
 					         <?php if ($res->pc_status == null) { ?>
@@ -140,6 +140,8 @@
         var val=$("#status").val();
         if(val==1){
            $("#drawing").show();
+           $("#movex_filter").attr('required','');
+           $("#sap_filter").attr('required','');
         }else{
             $("#drawing").hide();
         }

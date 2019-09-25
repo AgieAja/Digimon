@@ -38,9 +38,9 @@
 								<!-- <label>Image</label>
 								<input type="file" name="pack_img" class="form-control"> -->
 								<label>Inner BOX <span class="text-danger">(Pdf)</span></label>
-								<input type="file" name="inner_box" class="form-control" id="pdf" accept="application/pdf">
+								<input type="file" id="inner_box" name="inner_box" class="form-control" id="pdf" accept="application/pdf">
 					            <label>Outter BOX <span class="text-danger">(Pdf)</span></label>
-					            <input type="file" name="outter_box" value="" class="form-control" id="pdf" accept="application/pdf">
+					            <input type="file" id="outter_box" name="outter_box" value="" class="form-control" id="pdf" accept="application/pdf">
 					         </div>
 					         <label>Packaging Remark</label>
 					         <?php if ($res->ds_status == null) { ?>
@@ -95,6 +95,8 @@
         var val=$("#status").val();
         if(val==1){
            $("#drawing").show();
+           $("#inner_box").attr('required','');
+           $("#outter_box").attr('required','');
         }else{
             $("#drawing").hide();
         }

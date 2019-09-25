@@ -53,10 +53,10 @@
                         </thead>
 	                        <tbody id="tambahform">
 	                            <tr id="item">
-                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>
-                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>
+                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>
+                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>
                                 <td>
-                                    <select class="form-control name_list" name="manufacture[]">
+                                    <select class="form-control name_list" name="manufacture[]" required>
                                         <option value="" selected disabled>Choose</option>
                                         <?php foreach ($listManufacture as $row) { ?>
                                            <option value="<?= $row->manufacture_code ?>"><?= $row->manufacture_code ?></option>
@@ -64,7 +64,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select class="form-control name_list" name="warehouse[]">
+                                    <select class="form-control name_list" name="warehouse[]" required>
                                         <option value="" selected disabled>Choose</option>
                                         <?php foreach ($listWarehouse as $row) { ?>
                                            <option value="<?= $row->warehouse_code ?>"><?= $row->warehouse_code ?></option>
@@ -72,15 +72,15 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select class="form-control name_list" name="brand[]">
+                                    <select class="form-control name_list" name="brand[]" required>
                                         <option value="" selected disabled>Choose</option>
                                         <?php foreach ($listBrand as $row) { ?>
                                            <option value="<?= $row->brand_code ?>"><?= $row->brand_code ?></option>
                                         <?php } ?>
                                     </select>
                                 </td>
-                                <td><input class="form-control name_list" type="number" name="order_qty[]" value=""></td>
-                                <td><input class="form-control name_list" type="file" name="image_ref[]" id="image_ref" accept="image/gif, image/jpeg"></td>
+                                <td><input class="form-control name_list" type="number" name="order_qty[]" value="" required></td>
+                                <td><input class="form-control name_list" type="file" name="image_ref[]" id="image_ref" accept="image/gif, image/jpeg" required></td>
                                 <td><button class="btn btn-danger" id="remove-form">-</button></td>
                             </tr>
                             <tr id="items"></tr>
@@ -113,10 +113,10 @@ $(document).ready(function(){
   $('#tambahdata').click(function(){  
        i++;  
        $('#tambahform').append('<tr id="row'+i+'">'
-       	+'<td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>'
-       	+'<td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" autocomplete="off"></td>'
+       	+'<td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>'
+       	+'<td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>'
        	+'<td>'
-            +'<select class="form-control name_list" name="manufacture[]">'
+            +'<select class="form-control name_list" name="manufacture[]" required>'
                 +'<option value="" selected disabled>Choose</option>'
                 +'<?php foreach ($listManufacture as $row) { ?>'
                    +'<option value="<?= $row->manufacture_code ?>"><?= $row->manufacture_code ?></option>'
@@ -124,7 +124,7 @@ $(document).ready(function(){
             +'</select>'
         +'</td>'
         +' <td>'
-            +'<select class="form-control name_list" name="warehouse[]">'
+            +'<select class="form-control name_list" name="warehouse[]" required>'
                 +'<option value="" selected disabled>Choose</option>'
                 +'<?php foreach ($listWarehouse as $row) { ?>'
                    +'<option value="<?= $row->warehouse_code ?>"><?= $row->warehouse_code ?></option>'
@@ -132,15 +132,15 @@ $(document).ready(function(){
             +'</select>'
         +'</td>'
         +'<td>'
-            +'<select class="form-control name_list" name="brand[]">'
+            +'<select class="form-control name_list" name="brand[]" required>'
                 +'<option value="" selected disabled>Choose</option>'
                 +'<?php foreach ($listBrand as $row) { ?>'
                    +'<option value="<?= $row->brand_code ?>"><?= $row->brand_code ?></option>'
                 +'<?php } ?>'
             +'</select>'
         +'</td>'
-        +'<td><input class="form-control name_list" type="number" name="order_qty[]" value=""></td>'
-        +'<td><input class="form-control name_list" type="file" name="image_ref[]"></td>'
+        +'<td><input class="form-control name_list" type="number" name="order_qty[]" value="" required></td>'
+        +'<td><input class="form-control name_list" type="file" name="image_ref[]" required></td>'
        	+'<td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">-</button></td></tr>');  
   });  
   $(document).on('click', '.btn_remove', function(){  
