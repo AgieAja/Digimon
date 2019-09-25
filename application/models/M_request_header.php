@@ -28,7 +28,7 @@ class M_request_header extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
-                WHERE ra.approve_status = 1 || ra.approve_status =2 || ra.approve_status=0
+                WHERE ra.approve_status = 1 || ra.approve_status =2 
                 
             ");
         return  $query->result();
