@@ -6,7 +6,7 @@ echo $this->session->flashdata("msg");
         <div class="card">
             <div class="card-body">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Request Pending </h3></div>
+                    <div class="panel-heading"><h3>Request</h3></div>
                     <div class="panel-body">
                         <a href="<?php echo base_url();?>Request/add" class="btn btn-info">
 							Create

@@ -7,7 +7,7 @@
 				<i class="mdi mdi-cube text-danger icon-lg"></i>
 			</div>
 			<div class="float-right">
-				<p class="mb-0 text-right">Item Request</p>
+				<p class="mb-0 text-right">Request</p>
 				<div class="fluid-container">
 				<h3 class="font-weight-medium text-right mb-0"><?= count($itemRequest); ?></h3>
 				</div>
@@ -24,7 +24,7 @@
 				<i class="mdi mdi-receipt text-warning icon-lg"></i>
 			</div>
 			<div class="float-right">
-				<p class="mb-0 text-right">Item Request Approve</p>
+				<p class="mb-0 text-right">Request Approve</p>
 				<div class="fluid-container">
 				<h3 class="font-weight-medium text-right mb-0"><?= count($itemApprove); ?></h3>
 				</div>
@@ -41,7 +41,7 @@
 				<i class="mdi mdi-poll-box text-success icon-lg"></i>
 			</div>
 			<div class="float-right">
-				<p class="mb-0 text-right">Drawing Spec</p>
+				<p class="mb-0 text-right">Drawing & Spec</p>
 				<div class="fluid-container">
 				<h3 class="font-weight-medium text-right mb-0"><?= count($itemDrawing) ?></h3>
 				</div>
@@ -73,7 +73,7 @@
 	<div class="col-lg-12 grid-margin">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Item Request</h4>
+				<h4 class="card-title">Information Item Request Status</h4>
 				<div class="table-responsive">
 				<table class="table table-bordered" id="dtdashboard">
 					<thead>
