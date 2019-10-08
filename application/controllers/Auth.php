@@ -194,7 +194,7 @@ class Auth extends CI_controller
         // var_dump($newPassword);
         // exit;
 
-        $user = $this->m_auth;
+        $user = $this->M_auth;
         $res = $user->updatePassword();
 
         redirect('dashboard');

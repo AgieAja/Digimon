@@ -57,7 +57,7 @@
             </h3>
             <button class="close" data-dismiss="modal" type="close">&times;</button>
           </div>
-          <form action="<?php echo base_url(); ?>auth/updatePassword" method="POST">
+          <form action="<?php echo base_url(); ?>Auth/updatePassword" method="POST">
           <div class="modal-body">
             <h5></h5>
             
