@@ -28,6 +28,7 @@ class dashboard extends CI_Controller {
 		$data['body'] = "dashboard/v_dashboard";
 
         $data['itemRequest'] = $this->M_request_header->retrieveRequest();
+        $data['itemRequestCo'] = $this->M_request_header->retrieveRequestCo();
         $data['itemApprove'] = $this->M_approve->join_table();
         $data['itemDrawing'] = $this->M_drawing->join_table();
         $data['itemPackaging'] = $this->M_packaging->join_table();

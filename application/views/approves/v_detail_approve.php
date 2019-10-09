@@ -62,31 +62,11 @@
                                 </td>
                             </tr>
                             <?php } ?>
-                            <!-- <tr>
-                                <td>1</td>
-                                <td>1111.1111</td>
-                                <td>C-1123</td>
-                                <td>05F3</td>
-                                <td>EUF</td>
-                                <td>CLD</td>
-                                <td>1000</td>
-                                <td><a href="">img</a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>1111.22222</td>
-                                <td>C-5523</td>
-                                <td>05F3</td>
-                                <td>EUF</td>
-                                <td>CLD</td>
-                                <td>1000</td>
-                                <td><a href="">img</a></td>
-                            </tr> -->
                         </tbody>
                     </table>
                     <br><br>
                     <label>Note</label>
-                    <input type="text" class="form-control" name="note" placeholder="Add Note.......">
+                    <input type="text" class="form-control" name="note" placeholder="Add Note......." autocomplete="off">
                     <br>
                     <br>
                     

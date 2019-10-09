@@ -52,7 +52,7 @@ echo $this->session->flashdata("msg");
                                             <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> 
                                             <!-- <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a> -->
                                         <?php }elseif($row->approve_status ==2){ ?>
-                                            <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a> |
+                                            <a href="<?php echo base_url();?>Request/edit/<?= $row->request_header_id ?>">Edit</a>
                                             <!-- <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a> -->
                                         <?php }elseif($row->approve_status ==0){ ?>
                                             <a href="<?php echo base_url();?>Request/delete/<?= $row->request_header_id ?>">Delete</a>
@@ -60,18 +60,6 @@ echo $this->session->flashdata("msg");
                                         </td>
                                     </tr>
                                 <?php } } ?>
-                               <!--  <tr>
-                                    <td>RQM000001</td>
-                                    <td>Allied (M) Filtration Solution Nc</td>
-                                    <td>PO no: A-20190823-125</td>
-                                    <td>Nurahman_1</td>
-                                    <td>15 August 2019</td>
-                                    <td>Revision</td>
-                                    <td>
-                                        <a href="<?php echo base_url();?>Request/delete/">Edit</a> |
-                                        <a href="">Delete</a>
-                                    </td>
-                                </tr> -->
                             </tbody>
                         </table>
                     </div>

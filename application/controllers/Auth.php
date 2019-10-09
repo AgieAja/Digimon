@@ -190,10 +190,7 @@ class Auth extends CI_controller
 
     public function updatePassword()
     {
-        // $newPassword = $this->input->post('new_password');
-        // var_dump($newPassword);
-        // exit;
-
+      
         $user = $this->M_auth;
         $res = $user->updatePassword();
 

@@ -12,7 +12,7 @@ echo $this->session->flashdata("msg");
 							<input type="hidden" name="request_detail_id" value="<?= $request_id ?>">
 							<label>Customer No Info</label>
 							<input type="text" class="form-control" name="cusomter_no_info" value="<?= $res->customer_info_no ?>" readonly>
-							<label>Sakura No Reff</label>
+							<label>Sakura No Ref</label>
 							<input type="text" class="form-control" name="sakura_no_reff" value="<?= $res->sakura_ref_no ?>" readonly>
 							<label>Manufacture</label>
 							<input type="text" name="manufacture" value="<?= $res->manufacture_code ?>" class="form-control" readonly>
@@ -39,7 +39,7 @@ echo $this->session->flashdata("msg");
 							</select>
 							<div id="drawing">
 								<label>Sakura Version No</label>
-								<input type="text" class="form-control" id="sakura_version_no" name="sakura_version_no" value="<?= $res->sakura_version_no ?>">
+								<input type="text" class="form-control" id="sakura_version_no" name="sakura_version_no" value="<?= $res->sakura_version_no ?>" maxlength="20" autocomplete="off">
 					            <label>Drawing Design <span class="text-danger">(Pdf)</span></label>
 					            <input type="file" id="drawing_img" name="drawing_img" id="pdf" accept="application/pdf" class="form-control">
 					            <!-- <div class="mt-2">
@@ -48,7 +48,7 @@ echo $this->session->flashdata("msg");
 					         </div>
 
 							<label>Drawing Remark</label>
-								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" required>
+								<input type="text" class="form-control" name="drawing_remark" value="<?= $res->rd_remark ?>" maxlength="50" required autocomplete="off">
 							<br/>
 							<button type="submit" class="btn btn-primary">Save</button>
 							<a href="<?php echo base_url();?>Drawing"  class="btn btn-danger">

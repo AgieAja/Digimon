@@ -31,9 +31,7 @@ class Request extends CI_Controller
         $data['body'] = "Request/v_list_request";
         $data['listRequest'] = $this->M_request_header->retrieveRequest();
 
-        // var_dump($data['listRequest']);
-        // exit;
-
+        
         $this->load->view('v_home', $data);
     }
     public function save()
@@ -42,18 +40,6 @@ class Request extends CI_Controller
         
         for ($i=0; $i < $a ; $i++) { 
             
-            // $config['upload_path']          = './gambar/';
-            // $config['allowed_types']        = 'gif|jpg|png';
-            // $config['max_size']             = '0';
-
-            // $this->load->library('upload');
-            // $this->upload->initialize($config);
-            // $image = 'image_ref'[$i];
-            // $this->upload->do_upload($image);
-            
-            // $image_data = $this->upload->data();
-            // $file_path = $image_data[full_path];
-
             $namafile = $_FILES['image_ref']['name'][$i];
             $tmp = $_FILES['image_ref']['tmp_name'][$i];
             $type = $_FILES['image_ref']['type'][$i];
@@ -152,18 +138,7 @@ class Request extends CI_Controller
         
         for ($i=0; $i < $a ; $i++) { 
             
-            // $config['upload_path']          = './gambar/';
-            // $config['allowed_types']        = 'gif|jpg|png';
-            // $config['max_size']             = '0';
-
-            // $this->load->library('upload');
-            // $this->upload->initialize($config);
-            // $image = 'image_ref'[$i];
-            // $this->upload->do_upload($image);
-            
-            // $image_data = $this->upload->data();
-            // $file_path = $image_data[full_path];
-
+        
             $namafile = $_FILES['image_ref']['name'][$i];
             $tmp = $_FILES['image_ref']['tmp_name'][$i];
             $type = $_FILES['image_ref']['type'][$i];

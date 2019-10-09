@@ -38,17 +38,17 @@
 									}elseif ($row->access_level ==2){
 										echo "Sales";
 									}elseif ($row->access_level ==3){
-										echo "Head Sales";
+										echo "Ka Dept Sales";
 									}elseif ($row->access_level ==4){
-										echo "Enginnering Drawing";
+										echo "Engineering Drawing";
 									}elseif ($row->access_level ==5){
-										echo "Enginnering Packaging";
+										echo "Engineering Packaging";
 									}elseif ($row->access_level ==6){
-										echo "Enginnering BOM";
+										echo "Engineering BOM";
 									}elseif ($row->access_level ==7){
-										echo "Enginnering Head";
+										echo "Ka Dept Engineering";
 									}elseif ($row->access_level ==8){
-										echo "Sistem Admin";
+										echo "Admin Sistem";
 									} ?>	
 									</td>
 									<td>

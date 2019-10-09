@@ -16,14 +16,13 @@
                     </div><br>
                     <div class="row">
                         <div class="col-lg-2"><Label>Customer :</Label></div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-4">
                             <Select class="form-control" name="customer_code" required>
                                 <option value="" disabled selected>-Choose-</option>
                                 <?php foreach($listCustomer as $row){ ?>
-                                    <option value="<?= $row->customer_code ?>"><?= $row->customer_code ?></option>
+                                    <option value="<?= $row->customer_code ?>"><?= $row->customer_code ?> - <?= $row->name ?></option>
                                     <?php } ?>
                             </Select></div>
-                        <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Po No Customer</label></div>
                         <div class="col-lg-2"><input class="form-control" type="text" name="customer_po_no"  placeholder="Enter PO No..." required autocomplete="off"></div>
@@ -53,8 +52,8 @@
                         </thead>
 	                        <tbody id="tambahform">
 	                            <tr id="item">
-                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>
-                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" required autocomplete="off"></td>
+                                <td><input name="customer_no_info[]" class="form-control name_list" type="text" value="" maxlength="30" required autocomplete="off"></td>
+                                <td><input name="sakura_no_ref[]" class="form-control name_list" type="text" value="" maxlength="20" required autocomplete="off"></td>
                                 <td>
                                     <select class="form-control name_list" name="manufacture[]" required>
                                         <option value="" selected disabled>Choose</option>

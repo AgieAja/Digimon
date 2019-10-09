@@ -60,11 +60,8 @@
           <form action="<?php echo base_url(); ?>Auth/updatePassword" method="POST">
           <div class="modal-body">
             <h5></h5>
-            
-              <!-- <label class="h5">Old Password</label>
-              <input type="password" name="old_password" class="form-control"> -->
               <label class="h5">New Password</label>
-              <input type="password" name="new_password" class="form-control">
+              <input type="password" name="new_password" class="form-control" required>
               <div class="hidden">
                 <label class="h5">id</label>
               <input type="text" name="id" value="<?= $this->session->userdata('id'); ?>" class="form-control">

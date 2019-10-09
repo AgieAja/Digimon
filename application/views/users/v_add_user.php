@@ -21,14 +21,14 @@
 							<label>Access Level:</label>
 							<select id="access_level" name="access_level" class="form-control" onchange="level();" required>
 								<option value="0">--Choose--</option>
-								<option value="1">Sales Admin</option>
+								<option value="1">Admin Sales</option>
 								<option value="2">Sales</option>
-								<option value="3">Head Of Sales</option>
+								<option value="3">Ka Dept Sales</option>
 								<option value="4">Engineering Drawing Spec</option>
-								<option value="5">Enginering Packaging</option>
-								<option value="6">Enginering Bill Of Material</option>
-								<option value="7">Head Of Enginering</option>
-								<option value="8">System Admin</option>
+								<option value="5">Engineering Packaging</option>
+								<option value="6">Engineering Bill Of Material</option>
+								<option value="7">Ka Dept Enginering</option>
+								<option value="8">Admin Sistem</option>
 							</select>
 							<div id="zone_code">
 								<label>Zone Code (Sales Only)</label>

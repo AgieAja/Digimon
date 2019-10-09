@@ -15,8 +15,6 @@ class M_approve extends CI_Model
 
         $zone_sales = $this->session->userdata('zone_code');
 
-        // var_dump($zone_sales);
-        // exit;
 
         if ($zone_sales == Null) {
             
@@ -87,11 +85,7 @@ class M_approve extends CI_Model
         $this->db->where('request_header_id',$request_header_id);
         $this->db->update('request_approves',$data);
     }
-    // public function delete($id){
 
-    //     $this->db->where('request_header_id',$id);
-    //     $this->db->delete('request_approves');
-    // }
 
     public function note($id){
         $post = $this->input->post();

@@ -18,18 +18,17 @@
                     </div><br>
                     <div class="row">
                         <div class="col-lg-2"><Label>Customer :</Label></div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-4">
                             <Select class="form-control" name="customer_code">
                                 <option value="<?= $res->customer_code ?>"><?= $res->customer_code ?></option>
                                 <?php foreach ($listCustomer as $row): ?>
                                     <?php if ($row->customer_code <> $res->customer_code): ?>
-                                        <option value="<?= $row->customer_code ?>"><?= $row->customer_code ?></option>
+                                        <option value="<?= $row->customer_code ?>"><?= $row->customer_code ?> - <?= $row->name ?></option>
                                     <?php endif ?>
                                 
                                 <?php endforeach ?>
 
                             </Select></div>
-                        <div class="col-lg-2"></div>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2"><label>Po No Customer</label></div>
                         <div class="col-lg-2"><input class="form-control" type="text" name="customer_po_no" value="<?= $res->po_number_customer ?>" autocomplete="off" placeholder="Enter PO No..." ></div>

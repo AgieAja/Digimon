@@ -53,21 +53,21 @@
 									$selected_systemAdmin = "selected";
 								}
 							?>
-								<option value="1" <?php echo $selected_salesAdmin; ?>>Sales Admin</option>
+								<option value="1" <?php echo $selected_salesAdmin; ?>>Admin Sales</option>
 								<option value="2" <?php echo $selected_sales; ?>>Sales</option>
-								<option value="3" <?php echo $selected_hos; ?>>Head Of Sales</option>
+								<option value="3" <?php echo $selected_hos; ?>>Ka Dept Sales</option>
 								<option value="4" <?php echo $selected_drawing; ?>>Engineering Drawing Spec</option>
-								<option value="5" <?php echo $selected_packaging; ?>>Enginering Packaging</option>
+								<option value="5" <?php echo $selected_packaging; ?>>Engineering Packaging</option>
 								<option value="6" <?php echo $selected_bom; ?>>Engineering Bill Of Material</option>
-								<option value="7" <?php echo $selected_hoe; ?>>Head Of Engineering</option>
-								<option value="8" <?php echo $selected_systemAdmin; ?>>System Admin</option>
+								<option value="7" <?php echo $selected_hoe; ?>>Ka Dept Engineering</option>
+								<option value="8" <?php echo $selected_systemAdmin; ?>>Admin Sistem</option>
 							</select>
 							<div id="zone_code">
 								<label>Zone Code (Sales Only)</label>
 								<select name="zone_code" class="form-control">
 								<option value="<?= $zone_code ?>" selected disabled><?= $zone_code ?></option>
 									<?php foreach($listZone as $row){ ?>
-									<option><?= $row['zone_code']; ?></option>
+									<option><?= $row['zone_code']; ?> - <?= $row['zone_name']; ?></option>
 									<?php } ?>
 								</select>
 							</div>

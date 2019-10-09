@@ -35,8 +35,6 @@
 								<?php } ?>
 							</select>
 							<div id="drawing">
-								<!-- <label>Image</label>
-								<input type="file" name="pack_img" class="form-control"> -->
 								<label>Inner BOX <span class="text-danger">(Pdf)</span></label>
 								<input type="file" id="inner_box" name="inner_box" class="form-control" id="pdf" accept="application/pdf">
 					            <label>Outter BOX <span class="text-danger">(Pdf)</span></label>
@@ -44,9 +42,9 @@
 					         </div>
 					         <label>Packaging Remark</label>
 					         <?php if ($res->ds_status == null) { ?>
-					         	<input type="text" class="form-control" name="packaging_remark" required>
+					         	<input type="text" class="form-control" name="packaging_remark" maxlength="50" required autocomplete="off" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" name="packaging_remark" value="<?= $res->ds_remark ?>" required>
+					        	<input type="text" class="form-control" name="packaging_remark" value="<?= $res->ds_remark ?>" maxlength="50" required autocomplete="off" required>
 					    	<?php } ?>
 								
 							

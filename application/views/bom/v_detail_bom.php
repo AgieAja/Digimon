@@ -48,15 +48,15 @@
 							</select>
 							<div id="drawing">
 								<label>Movex Filter Master</label>
-								<input type="text" id="movex_filter" name="movex_filter" value="" class="form-control">
+								<input type="text" id="movex_filter" name="movex_filter" value="" maxlength="20" autocomplete="off" class="form-control" >
 								<label>SAP Filter Master</label>
-								<input type="text" id="sap_filter" name="sap_filter" value="" class="form-control">
+								<input type="text" id="sap_filter" name="sap_filter" value="" maxlength="40"  autocomplete="off" class="form-control" >
 					         </div>
 					         <label>BOM Remark</label>
 					         <?php if ($res->pc_status == null) { ?>
-					         	<input type="text" class="form-control" name="bom_remark" required>
+					         	<input type="text" class="form-control" name="bom_remark" maxlength="50"  autocomplete="off" required>
 					        <?php }else{ ?>
-					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" required>
+					        	<input type="text" class="form-control" name="bom_remark" value="<?= $res->pc_remark ?>" maxlength="50" autocomplete="off" required>
 					    	<?php } ?>
 								
 							

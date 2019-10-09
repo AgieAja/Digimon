@@ -25,11 +25,11 @@ class M_request_detail extends CI_Model
     }
     
     public function retrieveDashboard(){
-        $query = "SELECT rh.request_no, rd.customer_info_no , c.name AS customer_name, u.name AS created_by,us.name AS approve_by
+        $query = "SELECT rh.request_no, rd.customer_info_no , c.name AS customer_name, u.user_name AS created_by,us.user_name AS approve_by
         , CASE WHEN ra.approve_status IS NULL THEN 'New'
             WHEN ra.approve_status = 0 THEN 'Reject'
             WHEN ra.approve_status = 3 THEN 'Approved'
-            WHEN ra.approve_status = 2 THEN 'Revisi' ELSE 'Undefined' END 'request_status'
+            WHEN ra.approve_status = 2 THEN 'Revise' ELSE 'Undefined' END 'request_status'
         , CASE WHEN ra.approve_status = 3 AND rd.status IS NULL THEN 'Not Yet'
             WHEN ra.approve_status = 3 AND rd.status = 1 THEN 'Pending'
             WHEN ra.approve_status = 3 AND rd.status = 2 THEN 'Ok' ELSE 'Undefined' END 'drawing_spec_status'

@@ -9,7 +9,7 @@
 			<div class="float-right">
 				<p class="mb-0 text-right">Request</p>
 				<div class="fluid-container">
-				<h3 class="font-weight-medium text-right mb-0"><?= count($itemRequest); ?></h3>
+				<h3 class="font-weight-medium text-right mb-0"><?= count($itemRequestCo); ?></h3>
 				</div>
 			</div>
 			</div>
@@ -103,7 +103,7 @@
 						    BOM Status
 						</th>
 						<th>
-						    Sales Name
+						    Sales Approved By
 						</th>
 					</tr>
 					</thead>

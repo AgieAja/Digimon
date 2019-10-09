@@ -28,12 +28,28 @@ class M_request_header extends CI_Model
                 ON u.id = rh.created_by
                 LEFT JOIN request_approves as ra
                 ON rh.request_header_id = ra.request_header_id
-                WHERE ra.approve_status = 1 || ra.approve_status = 2 || ra.approve_status = 0
+                WHERE ra.approve_status = 1 || ra.approve_status = 2 || ra.approve_status = 0 
 
             ");
         return  $query->result();
     }
 
+    public function retrieveRequestCo()
+    {
+
+        $query = $this->db->query("SELECT rh.*,c.name,u.user_name,ra.approve_status
+                FROM request_headers as rh
+                LEFT JOIN customers as c
+                ON rh.customer_code = c.customer_code
+                LEFT JOIN users as u
+                ON u.id = rh.created_by
+                LEFT JOIN request_approves as ra
+                ON rh.request_header_id = ra.request_header_id
+                WHERE ra.approve_status = 1 || ra.approve_status = 2 
+
+            ");
+        return  $query->result();
+    }
     
     public function retriveRequestHeader(){
         $query = $this->db->query('SELECT request_no,request_header_id,customer_code, request_date, po_number_customer FROM request_header WHERE deleted_at IS NULL order by request_no');
@@ -42,7 +58,7 @@ class M_request_header extends CI_Model
 
     public function retrieveRequestHeaderJoin($request_header_id)
     {
-        // return $this->db->get_where($this->_table, ["request_header_id" => $request_header_id])->row();
+       
         $query = $this->db->query("SELECT rh.*,c.name,c.customer_code,u.user_name,ra.approve_status,ra.approve_note
                 FROM request_headers as rh
                 LEFT JOIN customers as c
@@ -98,8 +114,6 @@ class M_request_header extends CI_Model
             WHERE ra.approve_status = 3              
             ");
 
-        // var_dump($query->result());
-        // exit;
         return $query->result();
     }
 
