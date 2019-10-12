@@ -143,7 +143,7 @@
 			<div class="collapse" id="transaction">
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item">
-					<a class="nav-link" href="<?php echo base_url();?>BOM">BOM</a>
+					<a class="nav-link" href="<?php echo base_url();?>Bom">BOM</a>
 					</li>
 				</ul>
 			</div>
@@ -214,7 +214,7 @@
 					<a class="nav-link" href="<?php echo base_url();?>Approves">Approves</a>
 					<a class="nav-link" href="<?php echo base_url();?>Drawing">Drawing</a>
 					<a class="nav-link" href="<?php echo base_url();?>Packaging">Packaging</a>
-					<a class="nav-link" href="<?php echo base_url();?>BOM">BOM</a>
+					<a class="nav-link" href="<?php echo base_url();?>Bom">BOM</a>
 					<a class="nav-link" href="<?php echo base_url();?>Receive">Receive</a>
 					</li>
 				</ul>
