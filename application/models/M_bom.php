@@ -17,7 +17,7 @@ class M_bom extends CI_Model
     public $deleted_by;
 
     public function join_table(){
-        $query = $this->db->query("SELECT rh.*,rd.customer_info_no,c.name,u.user_name,us.user_name as sales,pc.created_at as pc_created_at,pc.status as pc_status,pc.packaging_id as pc_id
+        $query = $this->db->query("SELECT rh.*,rd.customer_info_no,rd.order_qty,c.name,u.user_name,us.user_name as sales,pc.created_at as pc_created_at,pc.status as pc_status,pc.packaging_id as pc_id
             FROM packagings as pc
             LEFT JOIN drawing_specs as ds ON pc.drawing_spec_id = ds.drawing_spec_id
             LEFT JOIN request_details as rd ON ds.request_detail_id = rd.request_detail_id

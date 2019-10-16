@@ -17,6 +17,7 @@ echo $this->session->flashdata("msg");
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Sales</th>
+                                    <th>Qty</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -30,7 +31,7 @@ echo $this->session->flashdata("msg");
                                     <td><?= date('d-M-Y',strtotime($row->rh_created_at)) ?></td>
                                     <td><?= $row->user_name ?></td>
                                     <td><?= $row->sales ?></td>
-                                    <!-- <td><?= $row->order_qty; ?></td> -->
+                                    <td><?= $row->order_qty; ?></td>
                                     <td>
                                         <?php if ($row->rd_status == 1) {
                                             echo "Pending";

@@ -17,6 +17,7 @@ echo $this->session->flashdata("msg");
                                     <th>Created By</th>
                                     <th>Created At</th>
                                     <th>Sales</th>
+                                    <th>Qty</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -31,6 +32,7 @@ echo $this->session->flashdata("msg");
                                     <td><?= $row->user_name; ?></td>
                                     <td><?= date('d-M-Y',strtotime($row->created_at)); ?></td>
                                     <td><?= $row->sales; ?></td>
+                                    <td><?= $row->order_qty; ?></td>
                                     <td>
                                     <?php if ($row->ds_status == null) {
                                         echo "New";
