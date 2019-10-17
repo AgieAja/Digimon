@@ -42,6 +42,7 @@
 	<table border="1" cellspacing="0">
 		<thead>
 			<tr>
+				<th>Sales Name</th>
 	            <th>Request No</th>
 	            <th>Request Date</th>
 	            <th>Customer Name</th>
@@ -58,6 +59,7 @@
 		<tbody>
 			<?php foreach ($finish as $row) { ?>
             <tr>
+            	<td><?= $row->name ?></td>
                 <td><?= $row->request_no; ?></td>
                 <td><?= date('d-M-Y',strtotime($row->request_date)); ?></td>
                 <td><?= $row->name; ?></td>
